@@ -1,3 +1,6 @@
 export const appPath = {
-    landing = '/',
+  landing: '/',
+  overview: '/overview',
+  editor: '/editor',
+  result: '/result',
 };
