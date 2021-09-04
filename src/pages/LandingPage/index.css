@@ -1,0 +1,25 @@
+.landing {
+  height: 100%;
+  background-color: #092c4c;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.startButton {
+  background-color: #f2994a;
+  width: 100px;
+  height: 40px;
+  border: 0;
+  border-radius: 4px;
+  margin: 20px auto;
+  color: white;
+  cursor: pointer;
+}
+
+.startButton :active {
+  background-color: white;
+  color: #f2994a;
+}
