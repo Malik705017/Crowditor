@@ -1,13 +1,13 @@
+import Title from '../../components/Title';
 import Sidebar from '../../components/Sidebar';
 
-import './index.css';
-import '../../App.css';
+import { container } from './index.module.css';
 
 const Overview = () => {
   return (
-    <div className='overview-container'>
-      <h1 className='subtitle absolute'>Overview</h1>
-      <Sidebar className='absolute' />
+    <div className={container}>
+      <Title>Overview</Title>
+      <Sidebar />
     </div>
   );
 };

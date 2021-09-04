@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+.welcome {
+  text-align: center;
+}
+
 .startButton {
   background-color: #f2994a;
   width: 100px;

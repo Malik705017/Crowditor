@@ -1,15 +1,16 @@
 import { useParams } from 'react-router-dom';
 
+import Title from '../../components/Title';
 import Sidebar from '../../components/Sidebar';
 
-import './index.css';
+import { container } from './index.module.css';
 
 const Editor = () => {
   const params = useParams();
   return (
-    <div className='editor-container'>
-      <h1 className='subtitle absolute'> Project {params.id}</h1>
-      <Sidebar className='absolute' />
+    <div className={container}>
+      <Title>Project {params.id}</Title>
+      <Sidebar />
     </div>
   );
 };

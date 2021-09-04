@@ -2,16 +2,8 @@
   height: 100vh;
 }
 
-.welcome {
-  text-align: center;
-}
-
 .absolute {
   position: absolute;
-}
-
-.subtitle {
-  left: 20%;
 }
 
 .logo {

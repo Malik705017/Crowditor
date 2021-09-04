@@ -5,11 +5,11 @@ import Editor from './pages/Editor';
 import LandingPage from './pages/LandingPage';
 import Overview from './pages/Overview';
 
-import './App.css';
+import globalStyles from './App.module.css';
 
 function App() {
   return (
-    <div className='App'>
+    <div className={globalStyles.App}>
       <Route path={appPath.landing} exact>
         <LandingPage />
       </Route>
