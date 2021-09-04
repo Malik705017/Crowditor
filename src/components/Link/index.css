@@ -1,0 +1,8 @@
+.link {
+  text-decoration: none;
+}
+
+.currentLink {
+  font-size: 22px;
+  font-weight: bold;
+}
