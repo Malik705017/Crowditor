@@ -1,0 +1,12 @@
+.sidebar {
+  height: 100%;
+  width: 15%;
+  background-color: #e0e0e0;
+  position: absolute;
+}
+
+.sidebarLink {
+  display: block;
+  margin: 12px 0;
+  text-align: center;
+}
