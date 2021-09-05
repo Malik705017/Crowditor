@@ -1,13 +1,15 @@
 import Title from '../../components/Title';
-import Sidebar from '../../components/Sidebar';
+import ProjectSidebar from '../../components/ProjectSidebar';
 
-import { container } from './index.module.css';
+import { container, overviewWrapper } from './index.module.css';
 
 const Overview = () => {
   return (
     <div className={container}>
-      <Title>Overview</Title>
-      <Sidebar />
+      <ProjectSidebar />
+      <div className={overviewWrapper}>
+        <Title>Overview</Title>
+      </div>
     </div>
   );
 };
