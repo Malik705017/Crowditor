@@ -1,3 +1,59 @@
 .container {
   position: relative;
+  height: 100%;
+}
+
+.formWrapper {
+  position: absolute;
+  left: 15%;
+  right: 20%;
+  padding: 0 40px;
+  height: 100%;
+  overflow: scroll;
+}
+
+.sectionWrapper {
+  margin: 40px 0;
+}
+
+.subTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.formRow {
+  margin: 15px 0;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flexItem {
+  width: 30%;
+}
+
+.formName {
+  font-size: 14px;
+  display: block;
+}
+
+.formInput {
+  box-sizing: border-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 4px 0;
+  height: 55px;
+  width: 100%;
+}
+
+.full {
+  width: 100%;
+}
+
+.contentInput {
+  height: 350px;
 }
