@@ -1,6 +1,10 @@
 import classNames from 'classnames';
 
 import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { editorActions } from '../../store/editor';
+import { examInput } from '../../util/validation';
 
 import Title from '../../components/Title';
 import ProjectSidebar from '../../components/ProjectSidebar';
@@ -18,6 +22,8 @@ import {
   flex,
   flexItem,
   contentInput,
+  checkboxes,
+  checkbox,
 } from './index.module.css';
 
 const data = {
@@ -30,6 +36,19 @@ const data = {
 
 const Editor = () => {
   const params = useParams();
+  const dispatch = useDispatch();
+  const editorState = useSelector(state => state.editor);
+  const { changeForm } = editorActions; // redux action destruction
+
+  const inputChangeHandler = ({ key, value, type }) => {
+    dispatch(changeForm({ key, value, type }));
+  };
+
+  const inputBlurHandler = ({ key, value, inputType, type }) => {
+    const isValid = examInput(inputType, value);
+    dispatch(changeForm({ key, value: isValid, type }));
+  };
+
   return (
     <div className={container}>
       <ProjectSidebar />
@@ -40,7 +59,21 @@ const Editor = () => {
           <h3 className={subTitle}>基本資料</h3>
           <div className={formRow}>
             <label className={formName}>專案名稱</label>
-            <input className={classNames(formInput, full)} type='text'></input>
+            <input
+              className={classNames(formInput, full)}
+              type='text'
+              value={editorState.name.value}
+              onChange={e =>
+                inputChangeHandler({
+                  key: 'value',
+                  value: e.target.value,
+                  type: 'name',
+                })
+              }
+              onBlur={() =>
+                inputBlurHandler({ key: 'isValid', value: editorState.name.value, type: 'name', inputType: 'text' })
+              }
+            ></input>
           </div>
           <div className={classNames(formRow, flex)}>
             <div className={flexItem}>
@@ -66,6 +99,24 @@ const Editor = () => {
           </div>
           <div className={formRow}>
             <label className={formName}>社群媒體</label>
+            <div className={checkboxes}>
+              <div className={checkbox}>
+                <input className={formInput} type='checkbox'></input>
+                <label className={formName}>網頁</label>
+              </div>
+              <div className={checkbox}>
+                <input className={formInput} type='checkbox'></input>
+                <label className={formName}>Facebook</label>
+              </div>
+              <div className={checkbox}>
+                <input className={formInput} type='checkbox'></input>
+                <label className={formName}>Instagram</label>
+              </div>
+              <div className={checkbox}>
+                <input className={formInput} type='checkbox'></input>
+                <label className={formName}>Youtube</label>
+              </div>
+            </div>
           </div>
         </section>
         <section className={sectionWrapper}>
