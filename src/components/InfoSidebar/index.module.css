@@ -1,0 +1,26 @@
+.sidebar {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 20%;
+  background-color: #e0e0e0;
+  color: #092c4c;
+}
+
+.title {
+  text-align: center;
+}
+
+.subTitle {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.subTitle > span {
+  font-size: 18px;
+}
+
+.info {
+  margin: 0 10%;
+}
