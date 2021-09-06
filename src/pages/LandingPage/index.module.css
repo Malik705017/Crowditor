@@ -1,6 +1,6 @@
 .landing {
   height: 100%;
-  background-color: #092c4c;
+  background-color: var(--main-color);
   color: white;
   display: flex;
   flex-direction: column;
