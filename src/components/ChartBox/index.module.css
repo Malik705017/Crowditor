@@ -1,0 +1,17 @@
+.chartBox {
+    /* background-color: gray; */
+    font-weight: bold;
+    font-size: x-large;
+    margin: 20px;
+}
+
+.mid {
+    height: 400px;
+    width: 600px;
+}
+  
+.large {
+    height: 500px;
+    width: 100%;
+    max-width: 1240px;
+}
