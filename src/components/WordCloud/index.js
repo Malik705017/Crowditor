@@ -4,7 +4,7 @@ import ReactWordcloud from "react-wordcloud";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
-import { words } from "../../resources/data/words";
+import { series } from "../../resources/data/WordCloud";
 
 const options = {
   colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"],
@@ -24,6 +24,6 @@ const options = {
 
 export default function WordCloud() {
   return (
-    <ReactWordcloud options={options} words={words} /> //resizable
+    <ReactWordcloud options={options} words={series} /> //resizable
   );
 }
