@@ -1,0 +1,13 @@
+.formInput {
+  box-sizing: border-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 4px 0;
+  height: 55px;
+  width: 100%;
+}
+
+.error {
+  border: 1px solid red;
+}
