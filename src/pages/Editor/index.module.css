@@ -49,6 +49,18 @@
   width: 100%;
 }
 
+.error {
+  border: 1px solid red;
+}
+
+.errorMessage::after {
+  content: '此欄位必填';
+  color: red;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .full {
   width: 100%;
 }
