@@ -1,8 +1,21 @@
+import classnames from 'classnames';
+
 import Title from '../../components/Title';
 import ProjectSidebar from '../../components/ProjectSidebar';
-import ChartBox from '../../components/ChartBox';
+import WordCloud from '../../components/Chart/WordCloud';
+import StackedBarFull from '../../components/Chart/StackedBarFull';
 
-import { container, overviewWrapper, chartBoxWrapper } from './index.module.css';
+import {
+  container,
+  overviewWrapper,
+  chartBoxWrapper,
+  chartBox,
+  mid,
+  large,
+  successRateWrapper,
+  recentSuccessRate,
+  overYearsSuccessRate
+} from './index.module.css';
 
 const Overview = () => {
   return (
@@ -11,13 +24,36 @@ const Overview = () => {
       <div className={overviewWrapper}>
         <Title>Overview</Title>
         <div className={chartBoxWrapper}>
-          <ChartBox size='large' chartTitle='熱門關鍵字' type='WordCloud' />
-          <ChartBox size='mid' chartTitle='近期專案成功率' />
-          <ChartBox size='mid' chartTitle='歷年專案成功率' />
-          <ChartBox size='mid' chartTitle='歷年專案達成率' />
-          <ChartBox size='mid' chartTitle='歷年募得金額' />
-          <ChartBox size='mid' chartTitle='歷年各類別比例' type='StackedBarFull' />
-          <ChartBox size='mid' chartTitle='各類別成敗比例' />
+          <div className={classnames(chartBox, large)}>
+            熱門關鍵字
+            <WordCloud />
+          </div>
+          <div className={classnames(chartBox, successRateWrapper)}>
+            <div className={recentSuccessRate}>
+              近期專案成功率
+              <h1>74.5%</h1>
+            </div>
+            <div className={overYearsSuccessRate}>
+              歷年專案成功率
+              {/* <StackedBarFull /> */}
+            </div>
+          </div>
+          <div className={classnames(chartBox, mid)}>
+            歷年專案達成率
+            <StackedBarFull />
+          </div>
+          <div className={classnames(chartBox, mid)}>
+            歷年募得金額
+            <StackedBarFull />
+          </div>
+          <div className={classnames(chartBox, mid)}>
+            歷年各類別比例
+            <StackedBarFull />
+          </div>
+          <div className={classnames(chartBox, mid)}>
+            各類別成敗比例
+            <StackedBarFull />
+          </div>
         </div>
       </div>
     </div>
