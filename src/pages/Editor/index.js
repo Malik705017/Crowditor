@@ -9,6 +9,7 @@ import { examInput } from '../../util/validation';
 import Title from '../../components/Title';
 import ProjectSidebar from '../../components/ProjectSidebar';
 import InfoSidebar from '../../components/InfoSidebar';
+import FormInput from '../../components/FormInput';
 
 import {
   container,
@@ -24,6 +25,7 @@ import {
   contentInput,
   checkboxes,
   checkbox,
+  errorMessage,
 } from './index.module.css';
 
 const data = {
@@ -58,35 +60,52 @@ const Editor = () => {
         <section className={sectionWrapper}>
           <h3 className={subTitle}>基本資料</h3>
           <div className={formRow}>
-            <label className={formName}>專案名稱</label>
-            <input
-              className={classNames(formInput, full)}
-              type='text'
+            <label className={classNames(formName, { [errorMessage]: !editorState.name.isValid })}>專案名稱</label>
+            <FormInput
+              className={full}
+              onChange={inputChangeHandler}
+              onBlur={inputBlurHandler}
+              type={'name'}
               value={editorState.name.value}
-              onChange={e =>
-                inputChangeHandler({
-                  key: 'value',
-                  value: e.target.value,
-                  type: 'name',
-                })
-              }
-              onBlur={() =>
-                inputBlurHandler({ key: 'isValid', value: editorState.name.value, type: 'name', inputType: 'text' })
-              }
-            ></input>
+              isValid={editorState.name.isValid}
+              inputType={'text'}
+            />
           </div>
           <div className={classNames(formRow, flex)}>
             <div className={flexItem}>
-              <label className={formName}>目標金額</label>
-              <input className={formInput} type='text'></input>
+              <label className={classNames(formName, { [errorMessage]: !editorState.goal.isValid })}>目標金額</label>
+              <FormInput
+                onChange={inputChangeHandler}
+                onBlur={inputBlurHandler}
+                type={'goal'}
+                value={editorState.goal.value}
+                isValid={editorState.goal.isValid}
+                inputType={'text'}
+              />
             </div>
             <div className={flexItem}>
-              <label className={formName}>專案類別</label>
-              <input className={formInput} type='text'></input>
+              <label className={classNames(formName, { [errorMessage]: !editorState.category.isValid })}>
+                專案類別
+              </label>
+              <FormInput
+                onChange={inputChangeHandler}
+                onBlur={inputBlurHandler}
+                type={'category'}
+                value={editorState.category.value}
+                isValid={editorState.category.isValid}
+                inputType={'text'}
+              />
             </div>
             <div className={flexItem}>
-              <label className={formName}>專案性質</label>
-              <input className={formInput} type='text'></input>
+              <label className={classNames(formName, { [errorMessage]: !editorState.type.isValid })}>專案性質</label>
+              <FormInput
+                onChange={inputChangeHandler}
+                onBlur={inputBlurHandler}
+                type={'type'}
+                value={editorState.type.value}
+                isValid={editorState.type.isValid}
+                inputType={'text'}
+              />
             </div>
           </div>
           <div className={formRow}>
@@ -94,8 +113,16 @@ const Editor = () => {
             <input className={classNames(formInput, full)} type='text'></input>
           </div>
           <div className={formRow}>
-            <label className={formName}>專案簡介</label>
-            <input className={classNames(formInput, full)} type='text'></input>
+            <label className={classNames(formName, { [errorMessage]: !editorState.intro.isValid })}>專案簡介</label>
+            <FormInput
+              className={full}
+              onChange={inputChangeHandler}
+              onBlur={inputBlurHandler}
+              type={'intro'}
+              value={editorState.intro.value}
+              isValid={editorState.intro.isValid}
+              inputType={'text'}
+            />
           </div>
           <div className={formRow}>
             <label className={formName}>社群媒體</label>
@@ -123,22 +150,57 @@ const Editor = () => {
           <h3 className={subTitle}>贊助方案</h3>
           <div className={classNames(formRow, flex)}>
             <div className={flexItem}>
-              <label className={formName}>贊助方案數</label>
-              <input className={formInput} type='text'></input>
+              <label className={classNames(formName, { [errorMessage]: !editorState.donateNum.isValid })}>
+                贊助方案數
+              </label>
+              <FormInput
+                onChange={inputChangeHandler}
+                onBlur={inputBlurHandler}
+                type={'donateNum'}
+                value={editorState.donateNum.value}
+                isValid={editorState.donateNum.isValid}
+                inputType={'text'}
+              />
             </div>
             <div className={flexItem}>
-              <label className={formName}>最高贊助金額</label>
-              <input className={formInput} type='text'></input>
+              <label className={classNames(formName, { [errorMessage]: !editorState.donateMaxAmount.isValid })}>
+                最高贊助金額
+              </label>
+              <FormInput
+                onChange={inputChangeHandler}
+                onBlur={inputBlurHandler}
+                type={'donateMaxAmount'}
+                value={editorState.donateMaxAmount.value}
+                isValid={editorState.donateMaxAmount.isValid}
+                inputType={'text'}
+              />
             </div>
             <div className={flexItem}>
-              <label className={formName}>最低贊助金額</label>
-              <input className={formInput} type='text'></input>
+              <label className={classNames(formName, { [errorMessage]: !editorState.donateMinAmount.isValid })}>
+                最低贊助金額
+              </label>
+              <FormInput
+                onChange={inputChangeHandler}
+                onBlur={inputBlurHandler}
+                type={'donateMinAmount'}
+                value={editorState.donateMinAmount.value}
+                isValid={editorState.donateMinAmount.isValid}
+                inputType={'text'}
+              />
             </div>
           </div>
         </section>
         <section className={sectionWrapper}>
-          <h3 className={subTitle}>專案內文</h3>
-          <input className={classNames(formInput, contentInput)} type='text'></input>
+          <h3 className={classNames(subTitle, { [errorMessage]: !editorState.content.isValid })}>專案內文</h3>
+          <FormInput
+            className={contentInput}
+            onChange={inputChangeHandler}
+            onBlur={inputBlurHandler}
+            type={'content'}
+            value={editorState.content.value}
+            isValid={editorState.content.isValid}
+            inputType={'text'}
+          />
         </section>
       </form>
     </div>
