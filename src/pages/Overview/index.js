@@ -7,6 +7,7 @@ import StackedBarFull from '../../components/Chart/StackedBarFull';
 import StackedColumnFull from '../../components/Chart/StackedColumnFull';
 import Line from '../../components/Chart/Line';
 import Bar from '../../components/Chart/Bar';
+import RankList from '../../components/RankList';
 
 import {
   container,
@@ -65,6 +66,36 @@ const Overview = () => {
             <h2>成功專案常見字</h2>
             強調售後服務、釐清常見問題有助於成功達標
             <WordCloud />
+          </div>
+          <div className={classnames(chartBox, mid)}>
+            <h2>贊助金額排行</h2>
+            <RankList columns={['專案名稱', '專案金額(千元)']} items={[
+              ['專案1', '590'],
+              ['專案2', '420'],
+              ['專案3', '413'],
+              ['專案4', '250'],
+              ['專案5', '190'],
+              ['專案6', '180'],
+              ['專案7', '155'],
+              ['專案8', '140'],
+              ['專案9', '120'],
+              ['專案10', '100']
+            ]}/>
+          </div>
+          <div className={classnames(chartBox, mid)}>
+            <h2>達成率排行</h2>
+            <RankList columns={['專案名稱', '達成率']} items={[
+              ['專案1', '590%'],
+              ['專案2', '420%'],
+              ['專案3', '413%'],
+              ['專案4', '250%'],
+              ['專案5', '190%'],
+              ['專案6', '180%'],
+              ['專案7', '155%'],
+              ['專案8', '140%'],
+              ['專案9', '120%'],
+              ['專案10', '100%']
+            ]}/>
           </div>
         </div>
       </div>
