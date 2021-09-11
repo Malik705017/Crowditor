@@ -1,4 +1,4 @@
-export const words =  [
+export const series =  [
     {
       text: 'told',
       value: 64,

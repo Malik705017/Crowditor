@@ -19,9 +19,11 @@
 
 .chartBox {
   /* background-color: gray; */
-  font-weight: bold;
-  font-size: x-large;
   margin: 20px;
+}
+
+.chartBox h2 {
+  margin: 0;
 }
 
 .mid {
