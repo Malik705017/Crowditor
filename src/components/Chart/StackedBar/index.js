@@ -1,52 +1,37 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-import { series } from "../../../resources/data/StackedBar";
-
-export default function StackedBar () {
+export default function StackedBar ({ data, full = false, horizontal = false }) {
   
   const options= {
     chart: {
         type: 'bar',
         height: 350,
         stacked: true,
+        stackType: full ? '100%' : ''
       },
       plotOptions: {
         bar: {
-          horizontal: true,
+          horizontal: horizontal,
         },
       },
       stroke: {
-        width: 1,
-        colors: ['#fff']
+        show: false,
       },
-      title: {
-        text: 'Stacked Bar'
-      },
-      xaxis: {
-        categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
-      },
-      tooltip: {
-        y: {
-          formatter: function (val) {
-            return val + "K"
-          }
-        }
-      },
+      xaxis: data.xaxis,
       fill: {
         opacity: 1
-      
       },
       legend: {
-        position: 'top',
-        horizontalAlign: 'left',
-        offsetX: 40
+        inverseOrder: horizontal ? false : true,
+        position: horizontal ? 'top' : 'right',
+        horizontalAlign: horizontal ? 'left' : '',
       }
     };
   
   
   
   return (
-    <Chart options={options} series={series} type="bar" />
+    <Chart options={options} series={data.series} type="bar"  height="100%" width="100%"/>
   )
 }

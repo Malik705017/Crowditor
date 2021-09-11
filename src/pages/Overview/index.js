@@ -3,11 +3,14 @@ import classnames from 'classnames';
 import Title from '../../components/Title';
 import ProjectSidebar from '../../components/ProjectSidebar';
 import WordCloud from '../../components/Chart/WordCloud';
-import StackedBarFull from '../../components/Chart/StackedBarFull';
-import StackedColumnFull from '../../components/Chart/StackedColumnFull';
+import StackedBar from '../../components/Chart/StackedBar';
 import Line from '../../components/Chart/Line';
 import Bar from '../../components/Chart/Bar';
 import RankList from '../../components/RankList';
+
+import { successRate, achievementRate, fundingAmount } from '../../resources/data/Line';
+import { eachYearCounts, eachKindCounts } from '../../resources/data/Bar';
+import { eachYearKind, eachKindSuccessRate } from '../../resources/data/StackedBar';
 
 import {
   container,
@@ -39,28 +42,32 @@ const Overview = () => {
             </div>
             <div className={overYearsSuccessRate}>
               <h2>歷年專案成功率</h2>
-              <Line />
+              <Line data={successRate}/>
             </div>
           </div>
           <div className={classnames(chartBox, mid)}>
             <h2>歷年專案達成率中位數</h2>
-            <Line />
+            <Line data={achievementRate}/>
           </div>
           <div className={classnames(chartBox, mid)}>
             <h2>歷年募得金額中位數</h2>
-            <Line />
-          </div>
-          <div className={classnames(chartBox, mid)}>
-            <h2>各類別專案數</h2>
-            <Bar />
-          </div>
-          <div className={classnames(chartBox, mid)}>
-            <h2>各類別成敗比例</h2>
-            <StackedBarFull />
+            <Line data={fundingAmount}/>
           </div>
           <div className={classnames(chartBox, mid)}>
             <h2>歷年各類別比例</h2>
-            <StackedColumnFull />
+            <StackedBar data={eachYearKind} full/>
+          </div>
+          <div className={classnames(chartBox, mid)}>
+            <h2>歷年專案數</h2>
+            <Bar data={eachYearCounts}/>
+          </div>
+          <div className={classnames(chartBox, mid)}>
+            <h2>各類別專案數</h2>
+            <Bar data={eachKindCounts} horizontal/>
+          </div>
+          <div className={classnames(chartBox, mid)}>
+            <h2>各類別成敗比例</h2>
+            <StackedBar data={eachKindSuccessRate} full horizontal/>
           </div>
           <div className={classnames(chartBox, large)}>
             <h2>成功專案常見字</h2>
@@ -79,7 +86,7 @@ const Overview = () => {
               ['專案7', '155'],
               ['專案8', '140'],
               ['專案9', '120'],
-              ['專案10', '100']
+              ['專案10', '100'],
             ]}/>
           </div>
           <div className={classnames(chartBox, mid)}>
