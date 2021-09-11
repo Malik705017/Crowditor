@@ -1,7 +1,7 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-import { series } from "../../resources/data/StackedBarFull";
+import { series } from "../../resources/data/StackedBar";
 
 export default function StackedBarFull () {
   
@@ -10,7 +10,6 @@ export default function StackedBarFull () {
         type: 'bar',
         height: 350,
         stacked: true,
-        stackType: '100%'
       },
       plotOptions: {
         bar: {
@@ -22,7 +21,7 @@ export default function StackedBarFull () {
         colors: ['#fff']
       },
       title: {
-        text: 'Stacked Bar Full'
+        text: 'Stacked Bar'
       },
       xaxis: {
         categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],

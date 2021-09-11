@@ -1,4 +1,3 @@
-//for stacked bar full
 export const series = [
     {
         name: 'Marine Sprite',
