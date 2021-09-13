@@ -9,7 +9,7 @@ import Bar from '../../components/Chart/Bar';
 import RankList from '../../components/RankList';
 
 import { successRate, achievementRate, fundingAmount } from '../../resources/data/Line';
-import { eachYearCounts, eachKindCounts } from '../../resources/data/Bar';
+import { eachYearCounts } from '../../resources/data/Bar';
 import { eachYearKind, eachKindSuccessRate } from '../../resources/data/StackedBar';
 
 import {
@@ -17,6 +17,7 @@ import {
   overviewWrapper,
   chartBoxWrapper,
   chartBox,
+  small,
   mid,
   large,
   successRateWrapper,
@@ -45,25 +46,21 @@ const Overview = () => {
               <Line data={successRate}/>
             </div>
           </div>
-          <div className={classnames(chartBox, mid)}>
+          <div className={classnames(chartBox, small)}>
             <h2>歷年專案達成率中位數</h2>
             <Line data={achievementRate}/>
           </div>
-          <div className={classnames(chartBox, mid)}>
+          <div className={classnames(chartBox, small)}>
             <h2>歷年募得金額中位數</h2>
             <Line data={fundingAmount}/>
           </div>
-          <div className={classnames(chartBox, mid)}>
-            <h2>歷年各類別比例</h2>
-            <StackedBar data={eachYearKind} full/>
-          </div>
-          <div className={classnames(chartBox, mid)}>
+          <div className={classnames(chartBox, small)}>
             <h2>歷年專案數</h2>
             <Bar data={eachYearCounts}/>
           </div>
           <div className={classnames(chartBox, mid)}>
-            <h2>各類別專案數</h2>
-            <Bar data={eachKindCounts} horizontal/>
+            <h2>歷年各類別比例</h2>
+            <StackedBar data={eachYearKind} full/>
           </div>
           <div className={classnames(chartBox, mid)}>
             <h2>各類別成敗比例</h2>
