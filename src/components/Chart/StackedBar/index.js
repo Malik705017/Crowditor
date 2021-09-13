@@ -26,6 +26,12 @@ export default function StackedBar ({ data, full = false, horizontal = false }) 
         inverseOrder: horizontal ? false : true,
         position: horizontal ? 'top' : 'right',
         horizontalAlign: horizontal ? 'left' : '',
+      },
+      dataLabels: {
+        formatter: function(value) {
+          if(value >= 5)
+          {return Math.round(value) + '%'}
+        }
       }
     };
   
