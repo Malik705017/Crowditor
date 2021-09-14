@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialEditorFormState = {
+export const initialEditorFormState = {
   name: { value: '', isValid: true },
   goal: { value: 0, isValid: true },
   category: { value: '', isValid: true },
@@ -29,11 +29,16 @@ const changeForm = (state, action) => ({
   },
 });
 
+const getForm = formData => ({
+  ...formData,
+});
+
 const editorSlice = createSlice({
   name: 'editorForm',
   initialState: initialEditorFormState,
   reducers: {
     changeForm,
+    getForm,
   },
 });
 
