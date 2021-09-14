@@ -2,11 +2,14 @@ import classNames from 'classnames';
 
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import DateTimePicker from 'react-datetime-picker';
 
 import { editorActions } from '../../store/editor';
 import { examInput } from '../../util/validation';
+import { appPath } from '../../config/routing.config';
 
 import Title from '../../components/Title';
+import Link from '../../components/Link';
 import ProjectSidebar from '../../components/ProjectSidebar';
 import InfoSidebar from '../../components/InfoSidebar';
 import FormInput from '../../components/FormInput';
@@ -25,7 +28,12 @@ import {
   contentInput,
   checkboxes,
   checkbox,
+  selectBox,
+  selectBoxArrow,
   errorMessage,
+  duration,
+  timePicker,
+  startButton,
 } from './index.module.css';
 
 const data = {
@@ -35,6 +43,26 @@ const data = {
   avgDescribeLen: 57,
   avgContentLen: 375,
 };
+
+const projectCategoryOptions = [
+  '出版',
+  '地方創生',
+  '插畫漫畫',
+  '攝影',
+  '教育',
+  '時尚',
+  '社會',
+  '科技',
+  '空間',
+  '藝術',
+  '表演',
+  '設計',
+  '遊戲',
+  '電影動畫',
+  '音樂',
+  '飲食',
+];
+const projectTypeOptions = ['群眾集資', '預購式專案', '訂閱式專案'];
 
 const Editor = () => {
   const params = useParams();
@@ -87,30 +115,44 @@ const Editor = () => {
               <label className={classNames(formName, { [errorMessage]: !editorState.category.isValid })}>
                 專案類別
               </label>
-              <FormInput
-                onChange={inputChangeHandler}
-                onBlur={inputBlurHandler}
-                type={'category'}
-                value={editorState.category.value}
-                isValid={editorState.category.isValid}
-                inputType={'text'}
-              />
+              <div className={selectBox}>
+                <select>
+                  {projectCategoryOptions.map(option => (
+                    <option key={`${option}`} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                <span className={selectBoxArrow}></span>
+              </div>
             </div>
             <div className={flexItem}>
               <label className={classNames(formName, { [errorMessage]: !editorState.type.isValid })}>專案性質</label>
-              <FormInput
-                onChange={inputChangeHandler}
-                onBlur={inputBlurHandler}
-                type={'type'}
-                value={editorState.type.value}
-                isValid={editorState.type.isValid}
-                inputType={'text'}
-              />
+              <div className={selectBox}>
+                <select>
+                  {projectTypeOptions.map(option => (
+                    <option key={`${option}`} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                <span className={selectBoxArrow}></span>
+              </div>
             </div>
           </div>
           <div className={formRow}>
             <label className={formName}>贊助時程</label>
-            <input className={classNames(formInput, full)} type='text'></input>
+            <DateTimePicker
+              className={timePicker}
+              value={new Date(editorState.startTime.value)}
+              onChange={value => inputChangeHandler({ key: 'value', value: value.toISOString(), type: 'startTime' })}
+            />
+            <span className={duration}>{'~'}</span>
+            <DateTimePicker
+              className={timePicker}
+              value={new Date(editorState.endTime.value)}
+              onChange={value => inputChangeHandler({ key: 'value', value: value.toISOString(), type: 'endTime' })}
+            />
           </div>
           <div className={formRow}>
             <label className={classNames(formName, { [errorMessage]: !editorState.intro.isValid })}>專案簡介</label>
@@ -202,6 +244,9 @@ const Editor = () => {
             inputType={'text'}
           />
         </section>
+        {/* <Link to={appPath.result}>
+          <button className={startButton}>開始評估</button>
+        </Link> */}
       </form>
     </div>
   );

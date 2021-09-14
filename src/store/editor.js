@@ -5,8 +5,8 @@ const initialEditorFormState = {
   goal: { value: 0, isValid: true },
   category: { value: '', isValid: true },
   type: { value: '', isValid: true },
-  startTime: { value: '', isValid: true },
-  endTime: { value: '', isValid: true },
+  startTime: { value: new Date().toISOString(), isValid: true },
+  endTime: { value: new Date().toISOString(), isValid: true },
   intro: { value: '', isValid: true },
   media: {
     value: { web: false, facebook: false, instagram: false, youtube: false },
