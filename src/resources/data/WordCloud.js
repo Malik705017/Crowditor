@@ -1,4 +1,4 @@
-export const series =  [
+export const series1 =  [
     {
       text: 'told',
       value: 64,
@@ -498,6 +498,41 @@ export const series =  [
     {
       text: 'refund',
       value: 10,
+    },
+  ];
+
+  export const series2 =  [
+    {
+      text: 'told',
+      value: 64,
+    },
+    {
+      text: 'mistake',
+      value: 11,
+    },
+    {
+      text: 'thought',
+      value: 16,
+    },
+    {
+      text: 'bad',
+      value: 17,
+    },
+    {
+      text: 'correct',
+      value: 10,
+    },
+    {
+      text: 'day',
+      value: 54,
+    },
+    {
+      text: 'prescription',
+      value: 12,
+    },
+    {
+      text: 'time',
+      value: 77,
     },
   ];
   
