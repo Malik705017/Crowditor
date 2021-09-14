@@ -1,7 +1,7 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-import { series } from "../../resources/data/StackedColumnFull";
+import { series } from "../../../resources/data/StackedColumnFull";
 
 export default function StackedColumnFull () {
   

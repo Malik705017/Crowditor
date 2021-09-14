@@ -1,0 +1,30 @@
+.rankList {
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: large;
+}
+
+.rankHeader {
+  background-color: gray;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.rankHeaderCell {
+  color: white;
+  font-weight: bold;
+  margin: 5px 10px;
+}
+
+.rankItem {
+  background-color: #e0e0e0;
+  width: 100%;
+  border-radius: 5px;
+  margin: 5px 0px;
+}
+
+.rankItemCell {
+  margin: 5px 10px;
+}

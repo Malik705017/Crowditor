@@ -1,7 +1,7 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-import { series } from "../../resources/data/BoxPlot";
+import { series } from "../../../resources/data/BoxPlot";
 
 
 export default function BoxPlot () {

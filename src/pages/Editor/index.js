@@ -244,9 +244,9 @@ const Editor = () => {
             inputType={'text'}
           />
         </section>
-        {/* <Link to={appPath.result}>
+        <Link to={appPath.result}>
           <button className={startButton}>開始評估</button>
-        </Link> */}
+        </Link>
       </form>
     </div>
   );
