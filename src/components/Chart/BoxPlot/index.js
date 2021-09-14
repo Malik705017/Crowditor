@@ -12,10 +12,6 @@ export default function BoxPlot () {
           height: 500
         },
         colors: ['#008FFB', '#FEB019'],
-        title: {
-          text: 'BoxPlot',
-          align: 'left'
-        },
         xaxis: {
           type: 'datetime',
           tooltip: {
@@ -24,14 +20,10 @@ export default function BoxPlot () {
             }
           }
         },
-        tooltip: {
-          shared: false,
-          intersect: true
-        }
       };
   return (
     
-    <Chart options={options} series={series} type="boxPlot" />
+    <Chart options={options} series={series} type="boxPlot" height="100%" width="100%"/>
     
   )
 }

@@ -10,3 +10,125 @@
   padding: 0 40px;
   height: 100%;
 }
+
+.columnCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contentWrapper {
+  width: 1100px;
+  max-width: 100%;
+}
+
+.scoreWrapper {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scoreBox {
+  height: 100%;
+  width: 300px;
+  padding: 10px 50px;
+  border-radius: 20px;
+  background-color: rgb(145, 236, 187);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.scoreBox h2 {
+  margin: 0;
+}
+
+.score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.score h1 {
+  font-size: 6em;
+  margin: 0;
+}
+
+.scoreRemark {
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.scoreRemark h1 {
+  margin: 0px 10px;
+}
+
+.chartBoxWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.chartBox {
+  /* background-color: gray; */
+  margin: 30px 30px 60px 30px;
+}
+
+.chartBox h2 {
+  margin: 0;
+}
+
+.small {
+  height: 300px;
+  width: 300px;
+}
+
+.mid {
+  height: 450px;
+  width: 600px;
+}
+
+.large {
+  height: 500px;
+  width: 100%;
+  max-width: 1260px;
+}
+
+.chartTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.chartTitle h2 {
+  margin-right: 10px;
+}
+
+.rankInfoWrapper {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.continueButton {
+  background-color: #092c4c;
+  color: white;
+  width: 200px;
+  height: 40px;
+  border: 0;
+  border-radius: 6px;
+  margin: 20px auto;
+  cursor: pointer;
+  font-size: large;
+}
+
+.continueButton :active {
+  background-color: white;
+  color: #092c4c;
+}
