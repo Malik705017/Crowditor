@@ -35,7 +35,7 @@ const ResultPage = () => {
           <div className={contentWrapper}>
             <div className={scoreWrapper}>
               <div className={scoreBox}>
-                <h2>專業評分</h2>
+                <h2>專案評分</h2>
                 <div className={score}>
                   <h1>95.6</h1>
                   /100
