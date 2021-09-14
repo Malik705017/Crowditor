@@ -10,3 +10,55 @@
   padding: 0 40px;
   height: 100%;
 }
+
+.chartBoxWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.chartBox {
+  /* background-color: gray; */
+  margin: 30px 30px;
+}
+
+.chartBox h2 {
+  margin: 0;
+}
+
+.small {
+  height: 300px;
+  width: 380px;
+}
+
+.mid {
+  height: 450px;
+  width: 600px;
+}
+
+.large {
+  height: 500px;
+  width: 100%;
+  max-width: 1260px;
+}
+
+.successRateWrapper {
+  height: 350px;
+  width: 100%;
+  max-width: 1240px;
+  display: flex;
+  flex-direction: row;
+}
+
+.recentSuccessRate {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.overYearsSuccessRate {
+  height: 100%;
+  width: 70%;
+}
