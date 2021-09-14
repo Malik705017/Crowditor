@@ -24,3 +24,18 @@ code {
 .react-datetime-picker__wrapper {
   border: 0;
 }
+
+.react-datetime-picker__button {
+  padding: 4px 8px;
+}
+
+.react-datetime-picker__button svg {
+  stroke: var(--main-color);
+  stroke-width: 1;
+}
+
+.react-datetime-picker__inputGroup {
+  font-weight: 200;
+  font-size: 0.8rem;
+  padding: 8px;
+}
