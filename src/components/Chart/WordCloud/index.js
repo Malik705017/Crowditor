@@ -11,7 +11,7 @@ const options = {
   enableTooltip: true,
   deterministic: false,
   fontFamily: "impact",
-  fontSizes: [5, 60],
+  fontSizes: [12, 72],
   fontStyle: "normal",
   fontWeight: "normal",
   padding: 1,
