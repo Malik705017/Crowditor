@@ -23,7 +23,9 @@ export default function Line ({ data }) {
           opacity: 0.5
         },
       },
-      xaxis: data.xaxis,
+      xaxis: {
+        categories: data.xaxis.categories,
+      },
       yaxis: data.yaxis,
     };
   
