@@ -128,6 +128,7 @@ const Editor = () => {
                 value={editorState.goal.value}
                 isValid={editorState.goal.isValid}
                 inputType={"text"}
+                isNum
               />
             </div>
             <div className={flexItem}>
@@ -139,7 +140,16 @@ const Editor = () => {
                 專案類別
               </label>
               <div className={selectBox}>
-                <select>
+                <select
+                  value={editorState.category.value}
+                  onChange={e =>
+                    inputChangeHandler({
+                      key: "value",
+                      value: e.target.value,
+                      type: "category"
+                    })
+                  }
+                >
                   {projectCategoryOptions.map(option => (
                     <option key={`${option}`} value={option}>
                       {option}
@@ -158,7 +168,16 @@ const Editor = () => {
                 專案性質
               </label>
               <div className={selectBox}>
-                <select>
+                <select
+                  value={editorState.type.value}
+                  onChange={e =>
+                    inputChangeHandler({
+                      key: "value",
+                      value: e.target.value,
+                      type: "type"
+                    })
+                  }
+                >
                   {projectTypeOptions.map(option => (
                     <option key={`${option}`} value={option}>
                       {option}
@@ -217,19 +236,63 @@ const Editor = () => {
             <label className={formName}>社群媒體</label>
             <div className={checkboxes}>
               <div className={checkbox}>
-                <input className={formInput} type='checkbox'></input>
+                <input
+                  className={formInput}
+                  type='checkbox'
+                  checked={editorState.website.value}
+                  onChange={() =>
+                    inputChangeHandler({
+                      key: "value",
+                      value: !editorState.website.value,
+                      type: "website"
+                    })
+                  }
+                ></input>
                 <label className={formName}>網頁</label>
               </div>
               <div className={checkbox}>
-                <input className={formInput} type='checkbox'></input>
+                <input
+                  className={formInput}
+                  type='checkbox'
+                  checked={editorState.facebook.value}
+                  onChange={() =>
+                    inputChangeHandler({
+                      key: "value",
+                      value: !editorState.facebook.value,
+                      type: "facebook"
+                    })
+                  }
+                ></input>
                 <label className={formName}>Facebook</label>
               </div>
               <div className={checkbox}>
-                <input className={formInput} type='checkbox'></input>
+                <input
+                  className={formInput}
+                  type='checkbox'
+                  checked={editorState.instagram.value}
+                  onChange={() =>
+                    inputChangeHandler({
+                      key: "value",
+                      value: !editorState.instagram.value,
+                      type: "instagram"
+                    })
+                  }
+                ></input>
                 <label className={formName}>Instagram</label>
               </div>
               <div className={checkbox}>
-                <input className={formInput} type='checkbox'></input>
+                <input
+                  className={formInput}
+                  type='checkbox'
+                  checked={editorState.youtube.value}
+                  onChange={() =>
+                    inputChangeHandler({
+                      key: "value",
+                      value: !editorState.youtube.value,
+                      type: "youtube"
+                    })
+                  }
+                ></input>
                 <label className={formName}>Youtube</label>
               </div>
             </div>
@@ -253,6 +316,7 @@ const Editor = () => {
                 value={editorState.donateNum.value}
                 isValid={editorState.donateNum.isValid}
                 inputType={"text"}
+                isNum
               />
             </div>
             <div className={flexItem}>
@@ -270,6 +334,7 @@ const Editor = () => {
                 value={editorState.donateMaxAmount.value}
                 isValid={editorState.donateMaxAmount.isValid}
                 inputType={"text"}
+                isNum
               />
             </div>
             <div className={flexItem}>
@@ -287,6 +352,7 @@ const Editor = () => {
                 value={editorState.donateMinAmount.value}
                 isValid={editorState.donateMinAmount.isValid}
                 inputType={"text"}
+                isNum
               />
             </div>
           </div>

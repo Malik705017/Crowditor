@@ -49,24 +49,24 @@ export const sendFormData = () => async (_, getState) => {
       description: formData.intro.value,
       domain: formData.category.value,
       end_time: formData.endTime.value,
-      facebook: formData.media.value.facebook,
+      facebook: formData.facebook.value,
       goal: formData.goal.value,
-      instagram: formData.media.value.instagram,
+      instagram: formData.instagram.value,
       max_set_prices: formData.donateMaxAmount.value,
       min_set_prices: formData.donateMinAmount.value,
       set_count: formData.donateNum.value,
       start_time: formData.startTime.value,
       title: formData.name.value,
       type: formData.type.value,
-      website: formData.media.value.website,
-      youtube: formData.media.value.youtube
+      website: formData.website.value,
+      youtube: formData.youtube.value
     };
 
     console.log("body", body);
 
     const response = await fetch(apiEndpoint.estimate, {
       method: "POST",
-      headers: { "Content-Type": "applicaiton/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
     });
 
