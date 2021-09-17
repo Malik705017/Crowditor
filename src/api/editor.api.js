@@ -1,12 +1,12 @@
-import { apiEndpoint } from '../config/api.config';
-import { editorActions, initialEditorFormState } from '../store/editor';
+import { apiEndpoint } from "../config/api.config";
+import { editorActions, initialEditorFormState } from "../store/editor";
 
 export const getFormData = id => async dispatch => {
   try {
     const response = await fetch(`${apiEndpoint.estimate}/${id}`);
     const parseData = await response.json();
 
-    if (!response.ok) throw new Error('failed to get data from server');
+    if (!response.ok) throw new Error("failed to get data from server");
 
     const formData = {
       name: { value: parseData.title, isValid: true },
@@ -21,28 +21,29 @@ export const getFormData = id => async dispatch => {
           web: parseData.website,
           facebook: parseData.facebook,
           instagram: parseData.instagram,
-          youtube: parseData.youtube,
+          youtube: parseData.youtube
         },
-        isValid: true,
+        isValid: true
       },
       content: {
         value: parseData.content,
-        isValid: true,
+        isValid: true
       },
       donateNum: { value: parseData.set_count, isValid: true },
       donateMaxAmount: { value: parseData.max_set_prices, isValid: true },
-      donateMinAmount: { value: parseData.min_set_prices, isValid: true },
+      donateMinAmount: { value: parseData.min_set_prices, isValid: true }
     };
 
     dispatch(editorActions.getForm(formData));
   } catch (error) {
-    dispatch(editoeActions.getForm(initialEditorFormState));
+    dispatch(editorActions.getForm(initialEditorFormState));
   }
 };
 
 export const sendFormData = () => async (_, getState) => {
   try {
-    const formData = getState().editorForm;
+    const formData = getState().editor;
+
     const body = {
       content: formData.content.value,
       description: formData.intro.value,
@@ -58,19 +59,26 @@ export const sendFormData = () => async (_, getState) => {
       title: formData.name.value,
       type: formData.type.value,
       website: formData.media.value.website,
-      youtube: formData.media.value.youtube,
+      youtube: formData.media.value.youtube
     };
 
-    const response = await fetch(`${apiEndpoint.estimate}/${id}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'applicaiton/json' },
-      body: JSON.stringify(body),
+    console.log("body", body);
+
+    const response = await fetch(apiEndpoint.estimate, {
+      method: "POST",
+      headers: { "Content-Type": "applicaiton/json" },
+      body: JSON.stringify(body)
     });
 
     if (!response.ok) {
-      throw new Error('failed to send data to server');
+      throw new Error("failed to send data to server");
     }
+
+    const estimation = await response.json();
+
+    console.log("estimation", estimation);
   } catch (error) {
+    console.log(error);
     return error;
   }
 };
