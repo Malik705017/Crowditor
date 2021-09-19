@@ -62,8 +62,6 @@ export const sendFormData = () => async (_, getState) => {
       youtube: formData.youtube.value
     };
 
-    console.log("body", body);
-
     const response = await fetch(apiEndpoint.estimate, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -78,7 +76,6 @@ export const sendFormData = () => async (_, getState) => {
 
     console.log("estimation", estimation);
   } catch (error) {
-    console.log(error);
     return error;
   }
 };

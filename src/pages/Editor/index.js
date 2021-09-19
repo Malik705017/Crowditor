@@ -6,11 +6,9 @@ import DateTimePicker from "react-datetime-picker";
 
 import { editorActions } from "../../store/editor";
 import { examInput } from "../../util/validation";
-import { appPath } from "../../config/routing.config";
 import { sendFormData } from "../../api/editor.api";
 
 import Title from "../../components/Title";
-import Link from "../../components/Link";
 import ProjectSidebar from "../../components/ProjectSidebar";
 import InfoSidebar from "../../components/InfoSidebar";
 import FormInput from "../../components/FormInput";
@@ -34,7 +32,8 @@ import {
   errorMessage,
   duration,
   timePicker,
-  startButton
+  startButton,
+  error
 } from "./index.module.css";
 
 const data = {
@@ -365,14 +364,25 @@ const Editor = () => {
           >
             專案內文
           </h3>
-          <FormInput
-            className={contentInput}
-            onChange={inputChangeHandler}
-            onBlur={inputBlurHandler}
-            type={"content"}
+          <textarea
+            className={classNames(contentInput, formInput, {
+              [error]: !editorState.content.isValid
+            })}
+            onChange={e =>
+              inputChangeHandler({
+                key: "value",
+                value: e.target.value,
+                type: "content"
+              })
+            }
+            onBlur={e =>
+              inputBlurHandler({
+                key: "isValid",
+                value: e.target.value,
+                type: "content"
+              })
+            }
             value={editorState.content.value}
-            isValid={editorState.content.isValid}
-            inputType={"text"}
           />
         </section>
         <button className={startButton} onClick={sendFormHandler} type='submit'>
