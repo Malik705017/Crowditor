@@ -1,20 +1,20 @@
 import { rankList, rankHeader, rankHeaderCell, rankItem, rankItemCell } from './index.module.css';
 
-export default function RankList ({columns=[], items=[]}) {
+export default function RankList ({title='', columns=[], items=[]}) {
     return (
         <table className={rankList}>
             <thead className={rankHeader}>
-                <th className={rankHeaderCell}>名次</th>
-                {columns.map((column) => (
-                    <th className={rankHeaderCell}>{column}</th>
-                ))}
+                <tr>
+                    {columns.map((column, i) => (
+                        <th key={`${title}-column-${i}`} className={rankHeaderCell}>{column}</th>
+                    ))}
+                </tr>
             </thead>
             <tbody>
                 {items.map((item, i) => (
-                    <tr className={rankItem}>
-                        <td className={rankItemCell}>{i+1}</td>
-                        {item.map((column) => (
-                            <td className={rankItemCell}>{column}</td>
+                    <tr key={`${title}-item-${i}`} className={rankItem}>
+                        {item.map((column, j) => (
+                            <td key={`${title}-cell-${i}-${j}`} className={rankItemCell}>{column}</td>
                         ))}
                     </tr>
                 ))}

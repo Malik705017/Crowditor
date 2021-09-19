@@ -1,17 +1,17 @@
-import classnames from 'classnames';
+import classnames from "classnames";
 
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
-import { getOverviewData } from '../../api/overview.api';
+import { getOverviewData } from "../../api/overview.api";
 
-import Title from '../../components/Title';
-import ProjectSidebar from '../../components/ProjectSidebar';
-import WordCloud from '../../components/Chart/WordCloud';
-import StackedBar from '../../components/Chart/StackedBar';
-import Line from '../../components/Chart/Line';
-import Bar from '../../components/Chart/Bar';
-import RankList from '../../components/RankList';
+import Title from "../../components/Title";
+import ProjectSidebar from "../../components/ProjectSidebar";
+import WordCloud from "../../components/Chart/WordCloud";
+import StackedBar from "../../components/Chart/StackedBar";
+import Line from "../../components/Chart/Line";
+import Bar from "../../components/Chart/Bar";
+import RankList from "../../components/RankList";
 
 import {
   container,
@@ -24,14 +24,14 @@ import {
   successRateWrapper,
   recentSuccessRate,
   overYearsSuccessRate
-} from './index.module.css';
+} from "./index.module.css";
 
 const Overview = () => {
   const dispatch = useDispatch();
   const overviewState = useSelector(state => state.overview);
 
   useEffect(() => {
-    dispatch(getOverviewData())
+    dispatch(getOverviewData());
   }, [dispatch]);
 
   return (
@@ -51,28 +51,32 @@ const Overview = () => {
             </div>
             <div className={overYearsSuccessRate}>
               <h2>歷年專案成功率</h2>
-              <Line data={overviewState.success_rate}/>
+              <Line data={overviewState.success_rate} />
             </div>
           </div>
           <div className={classnames(chartBox, small)}>
             <h2>歷年專案達成率中位數</h2>
-            <Line data={overviewState.achievement_rate}/>
+            <Line data={overviewState.achievement_rate} />
           </div>
           <div className={classnames(chartBox, small)}>
             <h2>歷年募得金額中位數</h2>
-            <Line data={overviewState.funds}/>
+            <Line data={overviewState.funds} />
           </div>
           <div className={classnames(chartBox, small)}>
             <h2>歷年專案數</h2>
-            <Bar data={overviewState.eachYearCounts}/>
+            <Bar data={overviewState.eachYearCounts} />
           </div>
           <div className={classnames(chartBox, mid)}>
             <h2>歷年各類別比例</h2>
-            <StackedBar data={overviewState.domain_cnt} full/>
+            <StackedBar data={overviewState.domain_cnt} full />
           </div>
           <div className={classnames(chartBox, mid)}>
             <h2>各類別成敗比例</h2>
-            <StackedBar data={overviewState.domain_success_rate} full horizontal/>
+            <StackedBar
+              data={overviewState.domain_success_rate}
+              full
+              horizontal
+            />
           </div>
           <div className={classnames(chartBox, large)}>
             <h2>成功專案常見字</h2>
@@ -81,11 +85,41 @@ const Overview = () => {
           </div>
           <div className={classnames(chartBox, mid)}>
             <h2>贊助金額排行</h2>
-            <RankList columns={overviewState.funds_ranking.columns} items={overviewState.funds_ranking.items}/>
+            <RankList
+              title='贊助金額排行'
+              columns={["名次", "專案名稱", "專案金額(千元)"]}
+              items={[
+                ["1", "專案1", "590"],
+                ["2", "專案2", "420"],
+                ["3", "專案3", "413"],
+                ["4", "專案4", "250"],
+                ["5", "專案5", "190"],
+                ["6", "專案6", "180"],
+                ["7", "專案7", "155"],
+                ["8", "專案8", "140"],
+                ["9", "專案9", "120"],
+                ["10", "專案10", "100"]
+              ]}
+            />
           </div>
           <div className={classnames(chartBox, mid)}>
             <h2>達成率排行</h2>
-            <RankList columns={overviewState.achievement_rate_ranking.columns} items={overviewState.achievement_rate_ranking.items}/>
+            <RankList
+              title='達成率排行'
+              columns={["名次", "專案名稱", "達成率"]}
+              items={[
+                ["1", "專案1", "590%"],
+                ["2", "專案2", "420%"],
+                ["3", "專案3", "413%"],
+                ["4", "專案4", "250%"],
+                ["5", "專案5", "190%"],
+                ["6", "專案6", "180%"],
+                ["7", "專案7", "155%"],
+                ["8", "專案8", "140%"],
+                ["9", "專案9", "120%"],
+                ["10", "專案10", "100%"]
+              ]}
+            />
           </div>
         </div>
       </div>

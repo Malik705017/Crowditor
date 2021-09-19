@@ -16,6 +16,8 @@ const Sidebar = ({ className, projects = [0, 1, 2, 3, 4, 5] }) => {
         {projects.map((p, index) => (
           <Link key={p} className={sidebarLink} to={`${appPath.editor}/${index + 1}`}>{`Project ${index + 1}`}</Link>
         ))}
+        <Link className={sidebarLink} to={appPath.overview}>Logout
+        </Link>
       </div>
     </div>
   );
