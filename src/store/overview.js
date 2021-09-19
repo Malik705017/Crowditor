@@ -72,7 +72,6 @@ export const initialOverviewState = {
         max: 300000
     },
   },
-  //歷年專案數去哪了
   eachYearCounts : {
     series: [{
       name: '專案數',
@@ -102,11 +101,9 @@ export const initialOverviewState = {
     all : [],
   },
   funds_ranking : {
-      columns : ['專案名稱', '專案金額(千元)'],
       items : [],
   },
   achievement_rate_ranking : {
-      columns : ['專案名稱', '達成率'],
       items : [],
   }
 };

@@ -80,7 +80,7 @@ export const getOverviewData = () => async dispatch => {
               max: 300000
           },
         },
-        //歷年專案數去哪了
+        
         eachYearCounts : {
           series: [{
             name: '專案數',
@@ -108,12 +108,10 @@ export const getOverviewData = () => async dispatch => {
             all : parseData.helpful_tokens,
         },
         funds_ranking : {
-            columns : ['專案名稱', '專案金額(千元)'],
-            items : parseData.funds_ranking.map(x => [x.title, x.present_value]),
+            items : parseData.funds_ranking.map(x => [x.rank, x.title, x.present_value]),
         },
         achievement_rate_ranking : {
-            columns : ['專案名稱', '達成率'],
-            items : parseData.achievement_rate_ranking.map(x => [x.title, Math.round(x.percentage * 100) / 100]),
+            items : parseData.achievement_rate_ranking.map(x => [x.rank, x.title, Math.round(x.percentage * 100) / 100]),
         }
     };
     dispatch(overviewActions.loadOverview(overviewData));
