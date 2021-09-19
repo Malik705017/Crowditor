@@ -18,7 +18,9 @@ export default function Bar ({ data, horizontal = false }) {
       dataLabels: {
         enabled: false
       },
-      xaxis: data.xaxis
+      xaxis: {
+        categories: data.xaxis.categories,
+      }
     };
   
   

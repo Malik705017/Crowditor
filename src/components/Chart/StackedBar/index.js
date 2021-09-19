@@ -18,7 +18,9 @@ export default function StackedBar ({ data, full = false, horizontal = false }) 
       stroke: {
         show: false,
       },
-      xaxis: data.xaxis,
+      xaxis: {
+        categories: data.xaxis.categories,
+      },
       fill: {
         opacity: 1
       },
