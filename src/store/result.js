@@ -67,7 +67,7 @@ const loadResult = (state, action) => ({
 });
 
 const resultSlice = createSlice({
-  name: 'overview',
+  name: 'result',
   initialState: initialResultState,
   reducers: {
     loadResult
