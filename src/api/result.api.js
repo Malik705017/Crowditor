@@ -1,4 +1,4 @@
-import { apiEndpoint } from '../config/api.config';
+//import { apiEndpoint } from '../config/api.config';
 import { resultActions, initialResultState } from '../store/result';
 
 import response_estimation from '../mock_response/response_estimation.json'
