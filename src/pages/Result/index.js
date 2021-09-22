@@ -10,7 +10,7 @@ import Title from '../../components/Title';
 import StackedBar from '../../components/Chart/StackedBar';
 import BoxPlot from '../../components/Chart/BoxPlot';
 import RankList from '../../components/RankList';
-import { eachRangeSuccessRate } from '../../resources/data/StackedBar';
+//import { eachRangeSuccessRate } from '../../resources/data/StackedBar';
 
 import {
   container,

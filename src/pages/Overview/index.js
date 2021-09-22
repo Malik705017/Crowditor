@@ -83,21 +83,23 @@ const Overview = () => {
             強調售後服務、釐清常見問題有助於成功達標
             <WordCloud data={overviewState.helpful_tokens} multi={false} />
           </div>
-          <div className={classnames(chartBox, mid)}>
-            <h2>贊助金額排行</h2>
-            <RankList
-              title='贊助金額排行'
-              columns={["名次", "專案名稱", "專案金額(千元)"]}
-              items={overviewState.funds_ranking.items}
-            />
-          </div>
-          <div className={classnames(chartBox, mid)}>
-            <h2>達成率排行</h2>
-            <RankList
-              title='達成率排行'
-              columns={["名次", "專案名稱", "達成率"]}
-              items={overviewState.achievement_rate_ranking.items}
-            />
+          <div className={classnames(successRateWrapper)}>
+            <div className={classnames(chartBox, mid)}>
+              <h2>贊助金額排行</h2>
+              <RankList
+                title='贊助金額排行'
+                columns={["名次", "專案名稱", "專案金額(千元)"]}
+                items={overviewState.funds_ranking.items}
+              />
+            </div>
+            <div className={classnames(chartBox, mid)}>
+              <h2>達成率排行</h2>
+              <RankList
+                title='達成率排行'
+                columns={["名次", "專案名稱", "達成率"]}
+                items={overviewState.achievement_rate_ranking.items}
+              />
+            </div>
           </div>
         </div>
       </div>
