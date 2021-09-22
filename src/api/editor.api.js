@@ -41,7 +41,7 @@ export const getFormData = id => async dispatch => {
   }
 };
 
-export const sendFormData = () => async (_, getState) => {
+export const sendFormData = () => async (dispatch, getState) => {
   try {
     const formData = getState().editor;
 
@@ -74,7 +74,7 @@ export const sendFormData = () => async (_, getState) => {
     }
 
     const estimation = await response.json();
-    getResultData(estimation);
+    dispatch(getResultData(estimation));
   } catch (error) {
     return error;
   }
