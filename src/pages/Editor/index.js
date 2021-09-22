@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import DateTimePicker from "react-datetime-picker";
 
@@ -66,6 +66,7 @@ const projectTypeOptions = ["群眾集資", "預購式專案", "訂閱式專案"
 
 const Editor = () => {
   const params = useParams();
+  const history = useHistory();
   const dispatch = useDispatch();
   const editorState = useSelector(state => state.editor);
   const { changeForm } = editorActions; // redux action destruction
@@ -81,8 +82,8 @@ const Editor = () => {
 
   const sendFormHandler = event => {
     event.preventDefault();
-    console.log("hello");
     dispatch(sendFormData());
+    history.push("/result");
   };
 
   return (
