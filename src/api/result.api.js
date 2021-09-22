@@ -87,11 +87,7 @@ export const getResultData = estimation => async dispatch => {
       peer_success_cnt: parseData.peer_success_cnt,
       categories: parseData.categories,
       peers: {
-        items: parseData.peers.map((item, i) => [
-          i + 1,
-          item.title,
-          item.cos.toFixed(2)
-        ])
+        items: parseData.peers.map((item,i) => ({...item, rank: i+1}))
       },
       goal: createBoxPlotData(parseData.metadata.goal, "目標金額"),
       duration_days: createBoxPlotData(

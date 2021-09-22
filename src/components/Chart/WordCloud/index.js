@@ -82,9 +82,13 @@ export default function WordCloud({ data, multi }) {
   if(multi){
     return (
       <div>
-        <button onClick={ changeAll }>
-         全部類別
-      </button>
+        <svg width="117" height="59" viewBox="0 0 117 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path onClick={ changeAll } d="M21.972 4.98562C23.1981 1.97124 26.1281 0 29.3823 0H81.781C84.7787 0 87.5248 1.67587 88.8956 4.34178L111.006 47.3418C113.743 52.6658 109.877 59 103.891 59H11.8908C6.21113 59 2.34034 53.2467 4.48043 47.9856L21.972 4.98562Z" fill="#669278"/>
+          <text x="0" y="50" font-family="Verdana" font-size="35" fill="blue">全部類別</text>
+        </svg>
+
+        
+      
       <button onClick={ changePublish }>
          出版
       </button>

@@ -108,10 +108,10 @@ export const getOverviewData = () => async dispatch => {
             all : parseData.helpful_tokens,
         },
         funds_ranking : {
-            items : parseData.funds_ranking.map(x => [x.rank, x.title, x.present_value]),
+            items : parseData.funds_ranking,
         },
         achievement_rate_ranking : {
-            items : parseData.achievement_rate_ranking.map(x => [x.rank, x.title, Math.round(x.percentage * 100) / 100]),
+            items : parseData.achievement_rate_ranking,
         }
     };
     dispatch(overviewActions.loadOverview(overviewData));
