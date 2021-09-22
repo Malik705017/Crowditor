@@ -29,16 +29,11 @@ const changeForm = (state, action) => ({
   }
 });
 
-const getForm = formData => ({
-  ...formData
-});
-
 const editorSlice = createSlice({
   name: "editorForm",
   initialState: initialEditorFormState,
   reducers: {
-    changeForm,
-    getForm
+    changeForm
   }
 });
 

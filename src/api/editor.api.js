@@ -1,5 +1,6 @@
 import { apiEndpoint } from "../config/api.config";
 import { editorActions, initialEditorFormState } from "../store/editor";
+import { getResultData } from "./result.api";
 
 export const getFormData = id => async dispatch => {
   try {
@@ -73,8 +74,7 @@ export const sendFormData = () => async (_, getState) => {
     }
 
     const estimation = await response.json();
-
-    console.log("estimation", estimation);
+    getResultData(estimation);
   } catch (error) {
     return error;
   }
