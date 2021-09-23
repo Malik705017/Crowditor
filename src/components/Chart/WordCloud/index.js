@@ -3,6 +3,7 @@ import ReactWordcloud from "react-wordcloud";
 
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
+import ButtonGroup from "./ButtonGroup";
 
 const options = {
   colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"],
@@ -26,7 +27,7 @@ export default function WordCloud({ data, multi }) {
   useEffect(() => {
     setGraph(<ReactWordcloud options={options} words={data.all} />)
   }, [data]);
-
+  
   const changeAll = () => {
     setGraph(<ReactWordcloud options={options} words={data.all} />)
   }
@@ -78,65 +79,73 @@ export default function WordCloud({ data, multi }) {
   const changeFood = () => {
     setGraph(<ReactWordcloud options={options} words={data.飲食} />)
   }
-  
+
+  const Farray = ({id}) => {
+    console.log(id);
+    switch(id){
+      case 0:
+        changeAll();
+        break;
+      case 1:
+          changePublish();
+          break;
+      case 2:
+          changeLocal();
+          break;
+      case 3:
+        changeComic();
+        break;
+      case 4:
+        changePhoto();
+        break;
+      case 5:
+        changeEducation();
+        break;
+      case 6:
+        changeFashion();
+        break;
+      case 7:
+        changeSociety();
+        break;
+      case 8:
+        changeTech();
+        break;
+      case 9:
+        changeSpace();
+        break;
+      case 10:
+        changeArt();
+        break;
+      case 11:
+        changePerform();
+        break;
+      case 12:
+        changeDesign();
+        break;
+      case 13:
+        changeGame();
+        break;
+      case 14:
+        changeMovie();
+        break;
+      case 15:
+        changeMusic();
+        break;
+      case 16:
+        changeFood();
+        break;
+      default:
+        changeAll();
+    }
+  }
+
   if(multi){
     return (
       <div>
-        <svg width="117" height="59" viewBox="0 0 117 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path onClick={ changeAll } d="M21.972 4.98562C23.1981 1.97124 26.1281 0 29.3823 0H81.781C84.7787 0 87.5248 1.67587 88.8956 4.34178L111.006 47.3418C113.743 52.6658 109.877 59 103.891 59H11.8908C6.21113 59 2.34034 53.2467 4.48043 47.9856L21.972 4.98562Z" fill="#669278"/>
-          <text x="0" y="50" font-family="Verdana" font-size="35" fill="blue">全部類別</text>
-        </svg>
-
-        
-      
-      <button onClick={ changePublish }>
-         出版
-      </button>
-      <button onClick={ changeLocal }>
-         地方創生
-      </button>
-      <button onClick={ changeComic }>
-         插畫漫畫
-      </button>
-      <button onClick={ changePhoto }>
-         攝影
-      </button>
-      <button onClick={ changeEducation }>
-         教育
-      </button>
-      <button onClick={ changeFashion }>
-         時尚
-      </button>
-      <button onClick={ changeSociety }>
-         社會
-      </button>
-      <button onClick={ changeTech }>
-         科技
-      </button>
-      <button onClick={ changeSpace }>
-         空間
-      </button>
-      <button onClick={ changeArt }>
-         藝術
-      </button>
-      <button onClick={ changePerform }>
-         表演
-      </button>
-      <button onClick={ changeDesign }>
-         設計
-      </button>
-      <button onClick={ changeGame }>
-         遊戲
-      </button>
-      <button onClick={ changeMovie }>
-         電影動畫
-      </button>
-      <button onClick={ changeMusic }>
-         音樂
-      </button>
-      <button onClick={ changeFood }>
-         飲食
-      </button>
+        <ButtonGroup
+        buttons={["全部分類", "出版", "地方創生", "插畫漫畫", "攝影", "教育", "時尚", "社會", "科技", "空間", "藝術", "表演", "設計", "遊戲", "電影動畫", "音樂", "飲食"]}
+        doSomethingAfterClick={ Farray }
+      />
         { graph }
       </div>
     );
