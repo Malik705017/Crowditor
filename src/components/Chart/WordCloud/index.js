@@ -3,6 +3,7 @@ import ReactWordcloud from "react-wordcloud";
 
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
+import ButtonGroup from "./ButtonGroup";
 
 const options = {
   colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"],
@@ -26,7 +27,7 @@ export default function WordCloud({ data, multi }) {
   useEffect(() => {
     setGraph(<ReactWordcloud options={options} words={data.all} />)
   }, [data]);
-
+  
   const changeAll = () => {
     setGraph(<ReactWordcloud options={options} words={data.all} />)
   }
@@ -78,61 +79,73 @@ export default function WordCloud({ data, multi }) {
   const changeFood = () => {
     setGraph(<ReactWordcloud options={options} words={data.飲食} />)
   }
-  
+
+  const Farray = ({id}) => {
+    console.log(id);
+    switch(id){
+      case 0:
+        changeAll();
+        break;
+      case 1:
+          changePublish();
+          break;
+      case 2:
+          changeLocal();
+          break;
+      case 3:
+        changeComic();
+        break;
+      case 4:
+        changePhoto();
+        break;
+      case 5:
+        changeEducation();
+        break;
+      case 6:
+        changeFashion();
+        break;
+      case 7:
+        changeSociety();
+        break;
+      case 8:
+        changeTech();
+        break;
+      case 9:
+        changeSpace();
+        break;
+      case 10:
+        changeArt();
+        break;
+      case 11:
+        changePerform();
+        break;
+      case 12:
+        changeDesign();
+        break;
+      case 13:
+        changeGame();
+        break;
+      case 14:
+        changeMovie();
+        break;
+      case 15:
+        changeMusic();
+        break;
+      case 16:
+        changeFood();
+        break;
+      default:
+        changeAll();
+    }
+  }
+
   if(multi){
     return (
       <div>
-        <button onClick={ changeAll }>
-         全部類別
-      </button>
-      <button onClick={ changePublish }>
-         出版
-      </button>
-      <button onClick={ changeLocal }>
-         地方創生
-      </button>
-      <button onClick={ changeComic }>
-         插畫漫畫
-      </button>
-      <button onClick={ changePhoto }>
-         攝影
-      </button>
-      <button onClick={ changeEducation }>
-         教育
-      </button>
-      <button onClick={ changeFashion }>
-         時尚
-      </button>
-      <button onClick={ changeSociety }>
-         社會
-      </button>
-      <button onClick={ changeTech }>
-         科技
-      </button>
-      <button onClick={ changeSpace }>
-         空間
-      </button>
-      <button onClick={ changeArt }>
-         藝術
-      </button>
-      <button onClick={ changePerform }>
-         表演
-      </button>
-      <button onClick={ changeDesign }>
-         設計
-      </button>
-      <button onClick={ changeGame }>
-         遊戲
-      </button>
-      <button onClick={ changeMovie }>
-         電影動畫
-      </button>
-      <button onClick={ changeMusic }>
-         音樂
-      </button>
-      <button onClick={ changeFood }>
-         飲食
-      </button>
+        <ButtonGroup
+        buttons={["全部分類", "出版", "地方創生", "插畫漫畫", "攝影", "教育", "時尚", "社會", "科技", "空間", "藝術", "表演", "設計", "遊戲", "電影動畫", "音樂", "飲食"]}
+        doSomethingAfterClick={ Farray }
+      />
         { graph }
       </div>
     );

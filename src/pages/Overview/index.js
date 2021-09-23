@@ -90,14 +90,16 @@ const Overview = () => {
                 title='贊助金額排行'
                 columns={["名次", "專案名稱", "專案金額(千元)"]}
                 items={overviewState.funds_ranking.items}
+                type='funds'
               />
             </div>
             <div className={classnames(chartBox, mid)}>
               <h2>達成率排行</h2>
               <RankList
                 title='達成率排行'
-                columns={["名次", "專案名稱", "達成率"]}
+                columns={["名次", "專案名稱", "達成率(%)"]}
                 items={overviewState.achievement_rate_ranking.items}
+                type='achievement'
               />
             </div>
           </div>

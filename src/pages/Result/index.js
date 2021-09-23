@@ -100,8 +100,9 @@ const ResultPage = () => {
               <h1>相似專案列表</h1>
               <RankList
                 title='相似專案列表'
-                columns={["名次", "專案名稱", "相似度"]}
+                columns={["名次", "專案名稱", "專案類別", "專案性質"]}
                 items={resultState.peers.items}
+                type='peers'
               />
               <h1>相似專案特性分布</h1>
               <div className={chartBoxWrapper}>
