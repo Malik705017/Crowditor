@@ -6,6 +6,7 @@ import Chart from "react-apexcharts";
 export default function Bar ({ data, horizontal = false }) {
   
   const options= {
+    colors: ["#3b8560"],
     chart: {
         type: 'bar',
       },

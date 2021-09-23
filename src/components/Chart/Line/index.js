@@ -5,6 +5,7 @@ import Chart from "react-apexcharts";
 
 export default function Line ({ data }) {
   const options= {
+    colors: ["#3b8560"],
     chart: {
         type: 'line',
         zoom: {
