@@ -1,8 +1,9 @@
 html,
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
@@ -13,12 +14,18 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 #root {
   height: 100%;
-  --main-color: #092c4c;
+  --first-color: #34483d;
+  --second-color: #3b8560;
+  --third-color: #669278;
+  --forth-color: #a1b69c;
+  --fifth-color: #eaeceb;
+  --sixth-color: #ffffff;
 }
 
 .react-datetime-picker__wrapper {
@@ -30,7 +37,7 @@ code {
 }
 
 .react-datetime-picker__button svg {
-  stroke: var(--main-color);
+  stroke: var(--first-color);
   stroke-width: 1;
 }
 
