@@ -1,11 +1,11 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-// import { series } from "../../../resources/data/Line";
+import { colors } from "../../../resources/data/Color";
 
 export default function Line ({ data }) {
   const options= {
-    colors: ["#3b8560"],
+    colors: [colors.color2],
     chart: {
         type: 'line',
         zoom: {

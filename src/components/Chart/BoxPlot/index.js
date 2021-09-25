@@ -1,6 +1,8 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
+//import { colors } from "../../../resources/data/Color";
+
 export default function BoxPlot ({data}) {
   const options = {
     chart: {

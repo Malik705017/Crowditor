@@ -11,7 +11,7 @@ const ButtonGroup = ({ buttons, doSomethingAfterClick }) => {
 
   const Tab = ({buttonLabel, i}) => {
       return(
-        <svg width="73" height="31" viewBox="0 0 93 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="65" height="31" viewBox="0 0 93 31" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 15C0 6.71573 6.71573 0 15 0H78C86.2843 0 93 6.71573 93 15V31H0V15Z" fill="#669278"
           name={buttonLabel}
           onClick={(event) => handleClick(event, i)}

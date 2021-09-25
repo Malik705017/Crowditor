@@ -1,12 +1,11 @@
 import React from 'react';
 import Chart from "react-apexcharts";
 
-// import { series } from "../../../resources/data/Bar";
+import { colors } from "../../../resources/data/Color";
 
 export default function Bar ({ data, horizontal = false }) {
-  
   const options= {
-    colors: ["#3b8560"],
+    colors: [colors.color3],
     chart: {
         type: 'bar',
       },
