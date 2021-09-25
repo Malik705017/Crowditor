@@ -27,6 +27,6 @@ export default function Bar ({ data, horizontal = false }) {
   
   
   return (
-    <Chart options={options} series={data.series} type="bar" height="100%" width="100%"/>
+    <Chart options={options} series={data.series} type="bar" height="90%" width="100%"/>
   )
 }

@@ -23,7 +23,9 @@ import {
   large,
   successRateWrapper,
   recentSuccessRate,
-  overYearsSuccessRate
+  overYearsSuccessRate,
+  listBox,
+  second_color_text
 } from "./index.module.css";
 
 const Overview = () => {
@@ -47,7 +49,7 @@ const Overview = () => {
           <div className={classnames(chartBox, successRateWrapper)}>
             <div className={recentSuccessRate}>
               <h2>近期專案成功率</h2>
-              <h1>{overviewState.success_rate_6_mon}</h1>
+              <h1 className={second_color_text}>{overviewState.success_rate_6_mon}</h1>
             </div>
             <div className={overYearsSuccessRate}>
               <h2>歷年專案成功率</h2>
@@ -84,8 +86,7 @@ const Overview = () => {
             <WordCloud data={overviewState.helpful_tokens} multi={false} />
           </div>
           <div className={classnames(successRateWrapper)}>
-            <div className={classnames(chartBox, mid)}>
-              <h2>贊助金額排行</h2>
+            <div className={classnames(listBox)}>
               <RankList
                 title='贊助金額排行'
                 columns={["名次", "專案名稱", "專案金額(千元)"]}
@@ -93,8 +94,7 @@ const Overview = () => {
                 type='funds'
               />
             </div>
-            <div className={classnames(chartBox, mid)}>
-              <h2>達成率排行</h2>
+            <div className={classnames(listBox)}>
               <RankList
                 title='達成率排行'
                 columns={["名次", "專案名稱", "達成率(%)"]}

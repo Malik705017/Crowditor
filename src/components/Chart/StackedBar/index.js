@@ -4,7 +4,7 @@ import Chart from "react-apexcharts";
 export default function StackedBar ({ data, full = false, horizontal = false }) {
   
   const options= {
-    colors: ["#34483d", "#3b8560", "#669278", "#a1b69c", "#eaeceb", "#ffffff"],
+    colors: ["#34483d", "#669278", "#3b8560", "#a1b69c"],
     chart: {
         type: 'bar',
         height: 350,
@@ -39,6 +39,6 @@ export default function StackedBar ({ data, full = false, horizontal = false }) 
     };
 
   return (
-    <Chart options={options} series={data.series} type="bar"  height="100%" width="100%"/>
+    <Chart options={options} series={data.series} type="bar"  height="90%" width="100%"/>
   )
 }

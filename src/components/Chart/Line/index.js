@@ -31,6 +31,6 @@ export default function Line ({ data }) {
     };
   
   return (
-    <Chart options={options} series={data.series} type="line" height="100%" width="100%"/>
+    <Chart options={options} series={data.series} type="line" height="90%" width="100%"/>
   )
 }

@@ -1,5 +1,6 @@
-import { rankList, rankHeader, rankHeaderCell, rankItem, rankItemCell } from './index.module.css';
-
+import React from 'react';
+import { rankList, rankHeader, rankHeaderCell, rankItem, rankItemCell, rank, name, value, headerSeparate } from './index.module.css';
+import classnames from "classnames";
 
 
 export default function RankList ({title='', columns=[], items=[], type}) {
@@ -9,42 +10,106 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                 <table className={rankList}>
                     <thead className={rankHeader}>
                         <tr>
-                            {columns.map((column, i) => (
-                                <th key={`${title}-column-${i}`} className={rankHeaderCell}>{column}</th>
-                            ))}
+                            <th colSpan="3" className={rankHeaderCell}>{title}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {items.map((item, i) => (
-                            <tr key={`${title}-item-${i}`} className={rankItem}>
-                                <td className={rankItemCell}>{item.rank}</td>
-                                <td className={rankItemCell}><a href={item.link}>{item.title}</a></td>
-                                <td className={rankItemCell}>{item.present_value.toLocaleString()}</td>
-                            </tr>
-                        ))}
+                        <tr className={rankItem}>
+                            {columns.map((column, i) => (
+                                <td key={`${title}-column-${i}`} className={classnames(rankItemCell, rank)}>{column}</td>
+                            ))}
+                        </tr>
+                        <tr>
+                            <td colSpan="3">
+                                <div><hr className={headerSeparate}></hr></div>
+                            </td>
+                        </tr>
+                        {items.map((item, i, arr) => {
+                            if(arr.length - 1 === i){
+                                return(<React.Fragment key={`${title}-item-${i}`}>
+                                <tr  className={rankItem}>
+                                    <td className={classnames(rankItemCell, rank)}>{item.rank}</td>
+                                    <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
+                                    <td className={classnames(rankItemCell, value)}>{item.present_value.toLocaleString()}</td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="3">
+                                    </td>
+                                </tr>
+                                </React.Fragment>)
+                            }
+                            else{
+                                return(
+                                    <React.Fragment key={`${title}-item-${i}`}>
+                                    <tr  className={rankItem}>
+                                        <td className={classnames(rankItemCell, rank)}>{item.rank}</td>
+                                        <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
+                                        <td className={classnames(rankItemCell, value)}>{item.present_value.toLocaleString()}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan="3">
+                                            <div><hr></hr></div>
+                                        </td>
+                                    </tr>
+                                    </React.Fragment>
+                                )
+                            }
+                        })}
                     </tbody>
                 </table>
             )
         case 'achievement':
             return (
                 <table className={rankList}>
-                    <thead className={rankHeader}>
-                        <tr>
-                            {columns.map((column, i) => (
-                                <th key={`${title}-column-${i}`} className={rankHeaderCell}>{column}</th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {items.map((item, i) => (
-                            <tr key={`${title}-item-${i}`} className={rankItem}>
-                                <td className={rankItemCell}>{item.rank}</td>
-                                <td className={rankItemCell}><a href={item.link}>{item.title}</a></td>
-                                <td className={rankItemCell}>{item.percentage.toFixed(2)}</td>
-                            </tr>
+                <thead className={rankHeader}>
+                    <tr>
+                        <th colSpan="3" className={rankHeaderCell}>{title}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr className={rankItem}>
+                        {columns.map((column, i) => (
+                            <td key={`${title}-column-${i}`} className={classnames(rankItemCell, rank)}>{column}</td>
                         ))}
-                    </tbody>
-                </table>
+                    </tr>
+                    <tr>
+                        <td colSpan="3">
+                            <div><hr className={headerSeparate}></hr></div>
+                        </td>
+                    </tr>
+                    {items.map((item, i, arr) => {
+                        if(arr.length - 1 === i){
+                            return(<React.Fragment key={`${title}-item-${i}`}>
+                            <tr  className={rankItem}>
+                                <td className={classnames(rankItemCell, rank)}>{item.rank}</td>
+                                <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
+                                <td className={classnames(rankItemCell, value)}>{item.percentage.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td colSpan="3">
+                                </td>
+                            </tr>
+                            </React.Fragment>)
+                        }
+                        else{
+                            return(
+                                <React.Fragment key={`${title}-item-${i}`}>
+                                <tr  className={rankItem}>
+                                    <td className={classnames(rankItemCell, rank)}>{item.rank}</td>
+                                    <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
+                                    <td className={classnames(rankItemCell, value)}>{item.percentage.toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="3">
+                                        <div><hr></hr></div>
+                                    </td>
+                                </tr>
+                                </React.Fragment>
+                            )
+                        }
+                    })}
+                </tbody>
+            </table>
             )
         case 'peers':
             return (
