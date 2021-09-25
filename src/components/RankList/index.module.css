@@ -28,6 +28,10 @@
   /* border-bottom: 1px solid black; */
 }
 
+.failure {
+  background-color: var(--forth-color);
+}
+
 .rankItemCell {
   margin: 5px 10px;
 }
@@ -44,14 +48,25 @@
   text-align: center;
 }
 
+.domain {
+  width: 100px;
+  text-align: center;
+}
+
+.Type {
+  width: 100px;
+  text-align: center;
+}
+
 .headerSeparate {
-  width: 500px;
+  width: 90%;
   background-color: var(--first-color);
   height: 5px;
 }
 
 .separateWrapper {
   background-color: var(--sixth-color);
+  height: 1px;
 }
 
 a,
@@ -90,12 +105,19 @@ td {
   height: 80px;
 }
 
+.separate {
+  height: 1px;
+}
+
 th {
   height: 80px;
 }
 
 hr {
-  width: 500px;
+  width: 90%;
   background-color: black;
   height: 1px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border: none;
 }
