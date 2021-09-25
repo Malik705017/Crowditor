@@ -22,6 +22,7 @@
   padding: 15px 15px;
   border-radius: 25px;
   box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+  background-color: var(--fifth-color);
 }
 
 .chartBox h2 {
@@ -46,6 +47,13 @@
 
 .successRateWrapper {
   height: 350px;
+  width: 100%;
+  max-width: 1240px;
+  display: flex;
+  flex-direction: row;
+}
+
+.listWrapper {
   width: 100%;
   max-width: 1240px;
   display: flex;

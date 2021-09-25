@@ -32,10 +32,6 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                                     <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
                                     <td className={classnames(rankItemCell, value)}>{item.present_value.toLocaleString()}</td>
                                 </tr>
-                                <tr>
-                                    <td colSpan="3">
-                                    </td>
-                                </tr>
                                 </React.Fragment>)
                             }
                             else{
@@ -84,10 +80,6 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                                 <td className={classnames(rankItemCell, rank)}>{item.rank}</td>
                                 <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
                                 <td className={classnames(rankItemCell, value)}>{item.percentage.toFixed(2)}</td>
-                            </tr>
-                            <tr>
-                                <td colSpan="3">
-                                </td>
                             </tr>
                             </React.Fragment>)
                         }

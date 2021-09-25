@@ -22,6 +22,7 @@ import {
   mid,
   large,
   successRateWrapper,
+  listWrapper,
   recentSuccessRate,
   overYearsSuccessRate,
   listBox,
@@ -85,7 +86,7 @@ const Overview = () => {
             強調售後服務、釐清常見問題有助於成功達標
             <WordCloud data={overviewState.helpful_tokens} multi={false} />
           </div>
-          <div className={classnames(successRateWrapper)}>
+          <div className={classnames(listWrapper)}>
             <div className={classnames(listBox)}>
               <RankList
                 title='贊助金額排行'
