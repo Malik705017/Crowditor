@@ -21,7 +21,7 @@
 }
 
 .rankItem {
-  background-color: white;
+  background-color: var(--sixth-color);
   width: 100%;
   border-radius: 5px;
   margin: 5px 0px;
@@ -48,6 +48,10 @@
   width: 500px;
   background-color: var(--first-color);
   height: 5px;
+}
+
+.separateWrapper {
+  background-color: var(--sixth-color);
 }
 
 a,

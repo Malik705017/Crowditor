@@ -1,5 +1,5 @@
 import React from 'react';
-import { rankList, rankHeader, rankHeaderCell, rankItem, rankItemCell, rank, name, value, headerSeparate } from './index.module.css';
+import { rankList, rankHeader, rankHeaderCell, rankItem, rankItemCell, rank, name, value, headerSeparate, separateWrapper } from './index.module.css';
 import classnames from "classnames";
 
 
@@ -19,7 +19,7 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                                 <td key={`${title}-column-${i}`} className={classnames(rankItemCell, rank)}>{column}</td>
                             ))}
                         </tr>
-                        <tr>
+                        <tr className={separateWrapper}>
                             <td colSpan="3">
                                 <div><hr className={headerSeparate}></hr></div>
                             </td>
@@ -42,7 +42,7 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                                         <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
                                         <td className={classnames(rankItemCell, value)}>{item.present_value.toLocaleString()}</td>
                                     </tr>
-                                    <tr>
+                                    <tr className={separateWrapper}>
                                         <td colSpan="3">
                                             <div><hr></hr></div>
                                         </td>
@@ -68,7 +68,7 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                             <td key={`${title}-column-${i}`} className={classnames(rankItemCell, rank)}>{column}</td>
                         ))}
                     </tr>
-                    <tr>
+                    <tr className={separateWrapper}>
                         <td colSpan="3">
                             <div><hr className={headerSeparate}></hr></div>
                         </td>
@@ -91,7 +91,7 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                                     <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
                                     <td className={classnames(rankItemCell, value)}>{item.percentage.toFixed(2)}</td>
                                 </tr>
-                                <tr>
+                                <tr className={separateWrapper}>
                                     <td colSpan="3">
                                         <div><hr></hr></div>
                                     </td>
