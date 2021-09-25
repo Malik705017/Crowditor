@@ -66,6 +66,26 @@ const createBoxPlotData = (inputData, title) => {
   };
 };
 
+const emptyBoxPlotData = {
+  series: [
+      {
+          name: 'box',
+          type: 'boxPlot',
+          data: [{
+              x: '',
+              y: []
+          }]
+      }
+  ],
+  xaxis: {
+      type: 'category',
+      categories: [''],
+  },
+  success_greater: 0,
+  success_less: 0,
+  project_value: 0,
+};
+
 export const getResultData = estimation => async dispatch => {
   try {
     const parseData = estimation;
@@ -89,27 +109,36 @@ export const getResultData = estimation => async dispatch => {
       peers: {
         items: parseData.peers.map((item,i) => ({...item, rank: i+1}))
       },
-      goal: createBoxPlotData(parseData.metadata.goal, "目標金額"),
-      duration_days: createBoxPlotData(
-        parseData.metadata.duration_days,
-        "募資時長"
-      ),
-      description_length: createBoxPlotData(
-        parseData.metadata.description_length,
-        "簡介字數"
-      ),
-      content_length: createBoxPlotData(
-        parseData.metadata.content_length,
-        "內文字數"
-      ),
-      max_set_prices: createBoxPlotData(
-        parseData.metadata.max_set_prices,
-        "最高贊助方案金額"
-      ),
-      min_set_prices: createBoxPlotData(
-        parseData.metadata.min_set_prices,
-        "最低贊助方案金額"
-      )
+      goal: parseData.peer_cnt===0 ? emptyBoxPlotData : 
+        createBoxPlotData(
+          parseData.metadata.goal,
+          "目標金額"
+        ),
+      duration_days: parseData.peer_cnt===0 ? emptyBoxPlotData : 
+        createBoxPlotData(
+          parseData.metadata.duration_days,
+          "募資時長"
+        ),
+      description_length: parseData.peer_cnt===0 ? emptyBoxPlotData : 
+        createBoxPlotData(
+          parseData.metadata.description_length,
+          "簡介字數"
+        ),
+      content_length: parseData.peer_cnt===0 ? emptyBoxPlotData : 
+        createBoxPlotData(
+          parseData.metadata.content_length,
+          "內文字數"
+        ),
+      max_set_prices: parseData.peer_cnt===0 ? emptyBoxPlotData : 
+        createBoxPlotData(
+          parseData.metadata.max_set_prices,
+          "最高贊助方案金額"
+        ),
+      min_set_prices: parseData.peer_cnt===0 ? emptyBoxPlotData : 
+        createBoxPlotData(
+          parseData.metadata.min_set_prices,
+          "最低贊助方案金額"
+        ),
     };
     dispatch(resultActions.loadResult(resultData));
   } catch (error) {

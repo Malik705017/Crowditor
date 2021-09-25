@@ -1,0 +1,31 @@
+.chartBox {
+    background-color: var(--sixth-color);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.5);
+}
+
+.chartBox h2 {
+    margin: 0;
+}
+
+.small {
+    height: 400px;
+    width: 400px;
+}
+
+.plotFrame {
+    height: 250px;
+    width: 100%;
+}
+
+.chartTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+  
+.chartTitle h2 {
+    margin-right: 10px;
+}

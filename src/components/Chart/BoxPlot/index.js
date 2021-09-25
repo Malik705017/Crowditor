@@ -9,11 +9,17 @@ export default function BoxPlot ({data}) {
       type: 'boxPlot',
       height: 500
     },
-    colors: ['#008FFB', '#FEB019'],
     xaxis: {
       categories:  data.xaxis.categories,
     },
-    // yaxis: data.yaxis,
+    plotOptions: {
+      boxPlot: {
+        colors: {
+          upper: '#669278',
+          lower: '#34483d'
+        }
+      }
+    }
   };
 
   return (
