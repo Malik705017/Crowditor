@@ -8,7 +8,9 @@
   left: 15%;
   right: 0;
   padding: 0 40px;
-  height: 100%;
+  height: auto;
+  background-color: var(--fifth-color);
+  color: var(--first-color);
 }
 
 .columnCenter {
@@ -17,57 +19,43 @@
   align-items: center;
 }
 
-.contentWrapper {
-  width: 1100px;
-  max-width: 100%;
-}
-
-.scoreWrapper {
-  height: 170px;
-  width: 100%;
+.rowCenter {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-.scoreBox {
-  height: 100%;
-  width: 300px;
-  padding: 10px 50px;
-  border-radius: 20px;
-  background-color: rgb(145, 236, 187);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.scoreBox h2 {
-  margin: 0;
-}
-
-.score {
+.rowBasline {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: baseline;
+}
+
+.rowBasline h1 {
+  font-size: 3em;
+  margin: 15px 10px;
 }
 
 .score h1 {
-  font-size: 6em;
+  font-size: 8em;
   margin: 0;
+  color: var(--second-color);
 }
 
-.scoreRemark {
-  width: 550px;
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: center;
+.textBox {
+  background-color: var(--forth-color);
+  margin: 30px;
+  padding: 10px 30px;
+  border-radius: 15px;
+  box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.5);
 }
 
-.scoreRemark h1 {
-  margin: 0px 10px;
+.textBox hr {
+  background-color: var(--first-color);
+  border: none;
+  height: 5px;
 }
 
 .chartBoxWrapper {
@@ -76,39 +64,9 @@
   flex-wrap: wrap;
 }
 
-.chartBox {
-  /* background-color: gray; */
-  margin: 30px 30px 60px 30px;
-}
-
-.chartBox h2 {
-  margin: 0;
-}
-
-.small {
-  height: 300px;
-  width: 300px;
-}
-
 .mid {
   height: 450px;
   width: 600px;
-}
-
-.large {
-  height: 500px;
-  width: 100%;
-  max-width: 1260px;
-}
-
-.chartTitle {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-}
-
-.chartTitle h2 {
-  margin-right: 10px;
 }
 
 .rankInfoWrapper {
@@ -117,8 +75,8 @@
 }
 
 .continueButton {
-  background-color: #092c4c;
-  color: white;
+  background-color: var(--first-color);
+  color: var(--fifth-color);
   width: 200px;
   height: 40px;
   border: 0;
@@ -126,9 +84,4 @@
   margin: 20px auto;
   cursor: pointer;
   font-size: large;
-}
-
-.continueButton :active {
-  background-color: white;
-  color: #092c4c;
 }

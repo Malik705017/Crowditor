@@ -63,6 +63,7 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                                 <td className={rankItemCell}><a href={item.link}>{item.title}</a></td>
                                 <td className={rankItemCell}>{item.domain}</td>
                                 <td className={rankItemCell}>{item.type}</td>
+                                <td className={rankItemCell}>{item.success ? '成功' : '失敗'}</td>
                             </tr>
                         ))}
                     </tbody>

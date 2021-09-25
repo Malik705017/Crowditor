@@ -138,7 +138,7 @@ export const getResultData = estimation => async dispatch => {
         createBoxPlotData(
           parseData.metadata.min_set_prices,
           "最低贊助方案金額"
-        )
+        ),
     };
     dispatch(resultActions.loadResult(resultData));
   } catch (error) {
