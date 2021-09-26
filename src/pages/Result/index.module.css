@@ -85,3 +85,18 @@
   cursor: pointer;
   font-size: large;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+}
+
+.loading {
+  background: transparent url('https://i.imgur.com/jcpSSun.gif') no-repeat;
+  background-position: center;
+  height: 80px;
+  width: 80px;
+}
