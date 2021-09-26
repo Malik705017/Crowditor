@@ -60,6 +60,12 @@ export const initialResultState = {
     content_length: emptyBoxPlotData,
     max_set_prices: emptyBoxPlotData,
     min_set_prices: emptyBoxPlotData,
+    title_recommend_tokens: {
+      all: []
+    },
+    content_recommend_tokens: {
+      all: []
+    }
 };
 
 const loadResult = (state, action) => ({

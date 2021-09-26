@@ -22,7 +22,6 @@ import {
   mid,
   large,
   successRateWrapper,
-  listWrapper,
   recentSuccessRate,
   overYearsSuccessRate,
   listBox,

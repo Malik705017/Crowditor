@@ -7,6 +7,7 @@ import Title from "../../components/Title";
 import StackedBar from "../../components/Chart/StackedBar";
 import RankList from "../../components/RankList";
 import Chartbox from "../../components/Chartbox";
+import WordCloud from "../../components/Chart/WordCloud";
 //import { eachRangeSuccessRate } from '../../resources/data/StackedBar';
 
 import {
@@ -21,17 +22,20 @@ import {
   mid,
   rankInfoWrapper,
   continueButton,
-  listBox
+  listBox,
+  chartBox,
+  large,
 } from "./index.module.css";
 
 const ResultPage = () => {
   const resultState = useSelector(state => state.result);
+  const editorState = useSelector(state => state.editor);
 
   return (
     <div className={container}>
       <ProjectSidebar />
       <div className={resultWrapper}>
-        <Title>Result</Title>
+        <Title>{editorState.name.value}</Title>
         <div className={columnCenter}>
           <div className={rowCenter}>
             <div>
@@ -77,13 +81,27 @@ const ResultPage = () => {
           </div>
           {resultState.peer_cnt !== 0 &&
             <>
-              <div className={listBox}>
+              <div className={classnames(chartBox, large, listBox)}>
                 <RankList
                     title='相似專案列表'
                     columns={["名次", "專案名稱", "專案類別", "專案性質", "結果"]}
                     items={resultState.peers.items}
                     type='peers'
                 />
+              </div>
+              <div className={chartBoxWrapper}>
+                <div className={classnames(chartBox, mid)}>
+                  <h2>標題推薦字</h2>
+                  <WordCloud data={resultState.title_recommend_tokens} multi={false} />
+                </div>
+                {/* <div className={classnames(chartBox, small)}>
+                  <h2>簡介推薦字</h2>
+                  <WordCloud data={resultState.content_recommend_tokens} multi={false} />
+                </div> */}
+                <div className={classnames(chartBox, mid)}>
+                  <h2>內文推薦字</h2>
+                  <WordCloud data={resultState.content_recommend_tokens} multi={false} />
+                </div>
               </div>
               <h1>相似專案特性分布</h1>
               <div className={chartBoxWrapper}>

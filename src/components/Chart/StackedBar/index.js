@@ -41,6 +41,6 @@ export default function StackedBar ({ data, full = false, horizontal = false }) 
     };
 
   return (
-    <Chart options={options} series={data.series} type="bar"  height="90%" width="100%"/>
+    <Chart options={options} series={data.series} type="bar" height="90%" width="100%"/>
   )
 }

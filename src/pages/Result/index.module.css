@@ -56,6 +56,8 @@
   background-color: var(--first-color);
   border: none;
   height: 5px;
+  width: 100%;
+  margin: 0;
 }
 
 .chartBoxWrapper {
@@ -64,9 +66,33 @@
   flex-wrap: wrap;
 }
 
+.chartBox {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+  background-color: var(--sixth-color);
+}
+
+.chartBox h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.large {
+  height: 400px;
+  width: 100%;
+  max-width: 1280px;
+}
+
 .mid {
   height: 450px;
-  width: 600px;
+  width: 620px;
+}
+
+.small {
+  height: 300px;
+  width: 400px;
 }
 
 .rankInfoWrapper {
@@ -88,6 +114,5 @@
 
 .listBox {
   height: auto;
-  border-radius: 15px;
-  box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+  padding: 0;
 }

@@ -139,6 +139,24 @@ export const getResultData = estimation => async dispatch => {
           parseData.metadata.min_set_prices,
           "最低贊助方案金額"
         ),
+      title_recommend_tokens: {
+        all: parseData.peer_cnt===0 ? [] : 
+          parseData.recommend_tokens.title.map((item) => (
+            {
+              "text": item.token,
+              "value": item.pvals,
+            }
+          ))
+      },
+      content_recommend_tokens: {
+        all: parseData.peer_cnt===0 ? [] : 
+          parseData.recommend_tokens.content.map((item) => (
+            {
+              "text": item.token,
+              "value": item.pvals,
+            }
+          ))
+      }
     };
     dispatch(resultActions.loadResult(resultData));
   } catch (error) {
