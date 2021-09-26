@@ -102,16 +102,29 @@
 
 .continueButton {
   background-color: var(--first-color);
-  color: var(--fifth-color);
-  width: 200px;
+  width: 100px;
   height: 40px;
   border: 0;
-  border-radius: 6px;
-  margin: 20px auto;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  color: white;
   cursor: pointer;
-  font-size: large;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+}
+
+.loading {
+  background: transparent url('https://i.imgur.com/jcpSSun.gif') no-repeat;
+  background-position: center;
+  height: 80px;
+  width: 80px;
+}
 .listBox {
   height: auto;
   padding: 0;
