@@ -56,7 +56,7 @@ export const getAdvice = () => async dispatch => {
 
 export const sendFormData = () => async (dispatch, getState) => {
   try {
-    const formData = getState().editor;
+    const formData = getState().editor.form;
 
     const body = {
       content: formData.content.value,
