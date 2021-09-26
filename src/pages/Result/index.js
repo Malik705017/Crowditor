@@ -20,6 +20,7 @@ import {
   textBox,
   chartBoxWrapper,
   mid,
+  small,
   rankInfoWrapper,
   continueButton,
   listBox,
@@ -91,15 +92,15 @@ const ResultPage = () => {
                   />
                 </div>
                 <div className={chartBoxWrapper}>
-                  <div className={classnames(chartBox, mid)}>
+                  <div className={classnames(chartBox, small)}>
                     <h2>標題推薦字</h2>
                     <WordCloud data={resultState.title_recommend_tokens} multi={false} />
                   </div>
-                  {/* <div className={classnames(chartBox, small)}>
+                  <div className={classnames(chartBox, small)}>
                     <h2>簡介推薦字</h2>
                     <WordCloud data={resultState.content_recommend_tokens} multi={false} />
-                  </div> */}
-                  <div className={classnames(chartBox, mid)}>
+                  </div>
+                  <div className={classnames(chartBox, small)}>
                     <h2>內文推薦字</h2>
                     <WordCloud data={resultState.content_recommend_tokens} multi={false} />
                   </div>
