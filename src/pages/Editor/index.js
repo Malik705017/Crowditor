@@ -1,12 +1,13 @@
+import { useEffect } from 'react';
 import classNames from 'classnames';
 
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import DateTimePicker from 'react-datetime-picker';
 
-import { editorActions } from '../../store/editor';
+import { editorActions, projectCategoryOptions, projectTypeOptions } from '../../store/editor';
 import { examInput } from '../../util/validation';
-import { sendFormData } from '../../api/editor.api';
+import { sendFormData, getAdvice } from '../../api/editor.api';
 
 import Title from '../../components/Title';
 import ProjectSidebar from '../../components/ProjectSidebar';
@@ -34,41 +35,15 @@ import {
   timePicker,
   startButton,
   error,
+  center,
 } from './index.module.css';
 
-const data = {
-  category: '科技類',
-  successRate: 78.3,
-  goal: 30000,
-  avgDescribeLen: 57,
-  avgContentLen: 375,
-};
-
-const projectCategoryOptions = [
-  '出版',
-  '地方創生',
-  '插畫漫畫',
-  '攝影',
-  '教育',
-  '時尚',
-  '社會',
-  '科技',
-  '空間',
-  '藝術',
-  '表演',
-  '設計',
-  '遊戲',
-  '電影動畫',
-  '音樂',
-  '飲食',
-];
-const projectTypeOptions = ['群眾集資', '預購式專案', '訂閱式專案'];
-
 const Editor = () => {
-  const params = useParams();
+  // const params = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
-  const editorState = useSelector(state => state.editor);
+  const editorState = useSelector(state => state.editor.form);
+  const adviceState = useSelector(state => state.editor.advice);
   const { changeForm } = editorActions; // redux action destruction
 
   const inputChangeHandler = ({ key, value, type }) => {
@@ -86,12 +61,16 @@ const Editor = () => {
     history.push('/result');
   };
 
+  useEffect(() => {
+    dispatch(getAdvice());
+  }, [dispatch]);
+
   return (
     <div className={container}>
       <ProjectSidebar />
-      <InfoSidebar data={data} />
+      <InfoSidebar data={adviceState[editorState.category.value]} category={editorState.category.value} />
       <form className={formWrapper}>
-        <Title>Project {params.id}</Title>
+        <Title>{editorState.name.value === '' ? 'Project' : editorState.name.value}</Title>
         <section className={sectionWrapper}>
           <h3 className={subTitle}>基本資料</h3>
           <div className={formRow}>
@@ -382,9 +361,11 @@ const Editor = () => {
             value={editorState.content.value}
           />
         </section>
-        <button className={startButton} onClick={sendFormHandler} type='submit'>
-          開始評估
-        </button>
+        <div className={center}>
+          <button className={startButton} onClick={sendFormHandler} type='submit'>
+            開始評估
+          </button>
+        </div>
       </form>
     </div>
   );

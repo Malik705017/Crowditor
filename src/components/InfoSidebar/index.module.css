@@ -3,8 +3,9 @@
   right: 0;
   height: 100%;
   width: 20%;
-  background-color: #e0e0e0;
-  color: #092c4c;
+  min-width: 250px;
+  background-color: var(--forth-color);
+  color: var(--first-color);
 }
 
 .title {
@@ -23,4 +24,17 @@
 
 .info {
   margin: 0 10%;
+}
+
+.words {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.word {
+  background-color: var(--sixth-color);
+  padding: 4px;
+  margin: 4px;
+  border-radius: 4px;
 }

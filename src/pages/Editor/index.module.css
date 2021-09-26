@@ -9,6 +9,9 @@
   right: 20%;
   padding: 0 40px;
   height: 100%;
+  width: 65%;
+  min-width: auto;
+  color: var(--first-color);
 }
 
 .sectionWrapper {
@@ -142,12 +145,18 @@
 }
 
 .startButton {
-  background-color: var(--main-color);
+  background-color: var(--first-color);
   width: 100px;
   height: 40px;
   border: 0;
   border-radius: 4px;
-  margin: 20px auto;
+  margin-bottom: 20px;
   color: white;
   cursor: pointer;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
