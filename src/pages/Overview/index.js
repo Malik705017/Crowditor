@@ -47,7 +47,7 @@ const Overview = () => {
             <h2>熱門關鍵字</h2>
             <WordCloud data={overviewState.keywords} multi={true} />
           </div>
-          <div className={classnames(chartBox, successRateWrapper)}>
+          <div className={classnames(chartBox, successRateWrapper, large)}>
             <div className={recentSuccessRate}>
               <h2>近期專案成功率</h2>
               <h1 className={second_color_text}>{overviewState.success_rate_6_mon}</h1>
@@ -86,23 +86,21 @@ const Overview = () => {
             強調售後服務、釐清常見問題有助於成功達標
             <WordCloud data={overviewState.helpful_tokens} multi={false} />
           </div>
-          <div className={classnames(listWrapper)}>
-            <div className={classnames(listBox)}>
-              <RankList
-                title='贊助金額排行'
-                columns={["名次", "專案名稱", "專案金額(千元)"]}
-                items={overviewState.funds_ranking.items}
-                type='funds'
-              />
-            </div>
-            <div className={classnames(listBox)}>
-              <RankList
-                title='達成率排行'
-                columns={["名次", "專案名稱", "達成率(%)"]}
-                items={overviewState.achievement_rate_ranking.items}
-                type='achievement'
-              />
-            </div>
+          <div className={classnames(chartBox, listBox)}>
+            <RankList
+              title='贊助金額排行'
+              columns={["名次", "專案名稱", "專案金額(NTD)"]}
+              items={overviewState.funds_ranking.items}
+              type='funds'
+            />
+          </div>
+          <div className={classnames(chartBox, listBox)}>
+            <RankList
+              title='達成率排行'
+              columns={["名次", "專案名稱", "達成率(%)"]}
+              items={overviewState.achievement_rate_ranking.items}
+              type='achievement'
+            />
           </div>
         </div>
       </div>

@@ -23,6 +23,7 @@ import {
   continueButton,
   loading,
   loader,
+  listBox,
 } from './index.module.css';
 
 const ResultPage = () => {
@@ -72,13 +73,14 @@ const ResultPage = () => {
             </div>
             {resultState.peer_cnt !== 0 && (
               <>
-                <h1>相似專案列表</h1>
-                <RankList
-                  title='相似專案列表'
-                  columns={['名次', '專案名稱', '專案類別', '專案性質', '結果']}
-                  items={resultState.peers.items}
-                  type='peers'
-                />
+                <div className={listBox}>
+                  <RankList
+                    title='相似專案列表'
+                    columns={['名次', '專案名稱', '專案類別', '專案性質', '結果']}
+                    items={resultState.peers.items}
+                    type='peers'
+                  />
+                </div>
                 <h1>相似專案特性分布</h1>
                 <div className={chartBoxWrapper}>
                   <Chartbox title='目標金額' unit='NTD' data={resultState.goal} />

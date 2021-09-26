@@ -1,12 +1,19 @@
 .sidebar {
   height: 100%;
   width: 15%;
-  background-color: #e0e0e0;
+  min-width: 100px;
   position: fixed;
+  background-color: var(--first-color);
+  color: var(--sixth-color);
 }
 
 .sidebarLink {
   display: block;
   margin: 12px 0;
   text-align: center;
+}
+
+.splitLine {
+  background-color: var(--sixth-color);
+  height: 1px;
 }
