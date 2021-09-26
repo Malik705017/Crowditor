@@ -19,6 +19,7 @@ import {
   score,
   textBox,
   chartBoxWrapper,
+  large,
   mid,
   small,
   rankInfoWrapper,
@@ -36,7 +37,7 @@ const ResultPage = () => {
 
   const handleContinue = () => {
     console.log('continue');
-    history.push('/Editor/1');
+    history.goBack();
   };
 
   return (
@@ -83,7 +84,7 @@ const ResultPage = () => {
             </div>
             {resultState.peer_cnt !== 0 && (
               <>
-                <div className={listBox}>
+                <div className={classnames(chartBox, large, listBox)}>
                   <RankList
                     title='相似專案列表'
                     columns={['名次', '專案名稱', '專案類別', '專案性質', '結果']}

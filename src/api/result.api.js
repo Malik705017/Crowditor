@@ -144,7 +144,7 @@ export const getResultData = estimation => async dispatch => {
           parseData.recommend_tokens.title.map((item) => (
             {
               "text": item.token,
-              "value": item.pvals,
+              "value": Math.log(item.pvals),
             }
           ))
       },
@@ -153,7 +153,7 @@ export const getResultData = estimation => async dispatch => {
           parseData.recommend_tokens.content.map((item) => (
             {
               "text": item.token,
-              "value": item.pvals,
+              "value": Math.log(item.pvals),
             }
           ))
       }
