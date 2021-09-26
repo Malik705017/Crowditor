@@ -111,7 +111,7 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                             </tr>
                             {arr.length - 1 !== i &&
                                 <tr className={separateWrapper}>
-                                    <td className={classnames(separate)} colSpan="5">
+                                    <td className={item.success ? separate : classnames(separate, failure)} colSpan="5">
                                         <hr></hr>
                                     </td>
                                 </tr>
