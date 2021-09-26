@@ -76,7 +76,6 @@ const ResultPage = () => {
           </div>
           {resultState.peer_cnt !== 0 &&
             <>
-              <h1>相似專案列表</h1>
               <RankList
                 title='相似專案列表'
                 columns={["名次", "專案名稱", "專案類別", "專案性質", "結果"]}

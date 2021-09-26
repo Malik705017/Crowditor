@@ -79,7 +79,7 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                             <tr  className={rankItem}>
                                 <td className={classnames(rankItemCell, rank)}>{item.rank}</td>
                                 <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
-                                <td className={classnames(rankItemCell, value)}>{item.percentage.toFixed(2)}</td>
+                                <td className={classnames(rankItemCell, value)}>{Math.round(item.percentage * 100).toLocaleString() + "%"}</td>
                             </tr>
                             </React.Fragment>)
                         }
@@ -89,7 +89,7 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                                 <tr  className={rankItem}>
                                     <td className={classnames(rankItemCell, rank)}>{item.rank}</td>
                                     <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
-                                    <td className={classnames(rankItemCell, value)}>{item.percentage.toFixed(2)}</td>
+                                    <td className={classnames(rankItemCell, value)}>{Math.round(item.percentage * 100).toLocaleString() + "%"}</td>
                                 </tr>
                                 <tr className={separateWrapper}>
                                     <td className={separate} colSpan="3">
