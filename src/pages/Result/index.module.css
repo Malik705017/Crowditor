@@ -9,6 +9,7 @@
   right: 0;
   padding: 0 40px;
   height: auto;
+  min-height: 100%;
   background-color: var(--fifth-color);
   color: var(--first-color);
 }

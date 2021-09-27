@@ -86,11 +86,16 @@ const emptyBoxPlotData = {
   project_value: 0,
 };
 
+export const startLoading = () => dispatch => {
+  dispatch(resultActions.startLoading());
+}
+
 export const getResultData = estimation => async dispatch => {
   try {
     const parseData = estimation;
 
     const resultData = {
+      loading: false,
       score: (parseData.score * 100).toFixed(1),
       score_rank_index: Math.floor(parseData.score * 10),
       greater_than: (parseData.greater_than * 100).toFixed(2),

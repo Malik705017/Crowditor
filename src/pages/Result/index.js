@@ -45,7 +45,7 @@ const ResultPage = () => {
       <ProjectSidebar />
       <div className={resultWrapper}>
         <Title>{editorState.form.name.value}</Title>
-        {resultState.score === 0 && resultState.score_rank_index === 0 ? (
+        {resultState.loading ? (
           <div className={loader}>
             <h3>Please wait for analyzing</h3>
             <div className={loading} />

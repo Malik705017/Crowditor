@@ -1,6 +1,6 @@
 import { apiEndpoint } from '../config/api.config';
 import { editorActions, initialEditorFormState } from '../store/editor';
-import { getResultData } from './result.api';
+import { startLoading, getResultData } from './result.api';
 
 export const getFormData = id => async dispatch => {
   try {
@@ -75,7 +75,7 @@ export const sendFormData = () => async (dispatch, getState) => {
       website: formData.website.value,
       youtube: formData.youtube.value,
     };
-
+    dispatch(startLoading());
     const response = await fetch(apiEndpoint.estimate, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
