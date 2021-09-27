@@ -86,7 +86,6 @@ export default function WordCloud({ data, multi }) {
   }
 
   const Farray = ({id}) => {
-    console.log(id);
     switch(id){
       case 0:
         changeAll();

@@ -47,7 +47,7 @@ const ResultPage = () => {
         <Title>{editorState.form.name.value}</Title>
         {resultState.score === 0 && resultState.score_rank_index === 0 ? (
           <div className={loader}>
-            <h3>Please wait for analyzing</h3>
+            <h3>Please wait while analyzing</h3>
             <div className={loading} />
           </div>
         ) : (
