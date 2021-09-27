@@ -47,7 +47,7 @@ const ResultPage = () => {
         <Title>{editorState.form.name.value}</Title>
         {resultState.loading ? (
           <div className={loader}>
-            <h3>Please wait for analyzing</h3>
+            <h3>Please wait while analyzing</h3>
             <div className={loading} />
           </div>
         ) : (

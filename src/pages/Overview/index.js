@@ -96,7 +96,7 @@ const Overview = () => {
           <div className={classnames(chartBox, listBox)}>
             <RankList
               title='達成率排行'
-              columns={["名次", "專案名稱", "達成率(%)"]}
+              columns={["名次", "專案名稱", "達成率"]}
               items={overviewState.achievement_rate_ranking.items}
               type='achievement'
             />
