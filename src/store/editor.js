@@ -19,7 +19,7 @@ export const projectCategoryOptions = [
   '飲食',
 ];
 
-export const projectTypeOptions = ['群眾集資', '訂閱式專案'];
+export const projectTypeOptions = ['群眾集資', '預購式專案'];
 
 export const initialEditorFormState = {
   form: {
