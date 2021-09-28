@@ -2,6 +2,7 @@
 import { resultActions, initialResultState } from "../store/result";
 
 // import response_estimation from "../mock_response/response_estimation.json";
+import { colors } from "../resources/data/Color";
 
 const createBoxPlotData = (inputData, title) => {
   return {
@@ -20,7 +21,8 @@ const createBoxPlotData = (inputData, title) => {
               inputData.box_max
             ]
           }
-        ]
+        ],
+        color: colors.color1
       },
       {
         name: "專案自己",
@@ -31,7 +33,7 @@ const createBoxPlotData = (inputData, title) => {
             y: inputData.project_value
           }
         ],
-        color: "#8B00FF"
+        color: colors.color4
       },
       {
         name: "相似失敗專案中位數",
@@ -42,7 +44,7 @@ const createBoxPlotData = (inputData, title) => {
             y: inputData.failure_median
           }
         ],
-        color: "#FF0000"
+        color: colors.color2
       },
       {
         name: "相似成功專案中位數",
@@ -53,7 +55,7 @@ const createBoxPlotData = (inputData, title) => {
             y: inputData.success_median
           }
         ],
-        color: "#0000FF"
+        color: colors.color5
       }
     ],
     xaxis: {

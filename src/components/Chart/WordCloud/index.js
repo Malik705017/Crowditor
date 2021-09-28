@@ -11,7 +11,7 @@ import ButtonGroup from "./ButtonGroup";
 export default function WordCloud({ data, multi }) {
   const options = useMemo(() => {
     return({
-      colors: [colors.color1, colors.color2,colors.color3,colors.color4],
+      colors: [colors.color1, colors.color2,colors.color3,colors.color4,colors.color5],
       enableTooltip: multi? true: false,
       deterministic: false,
       fontFamily: "impact",

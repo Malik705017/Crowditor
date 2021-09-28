@@ -1,7 +1,7 @@
 .landing {
   height: 100%;
-  background-color: var(--main-color);
-  color: white;
+  background-color: var(--fifth-color);
+  color: var(--second-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,20 +10,31 @@
 
 .welcome {
   text-align: center;
+  /* font-family: 'Pristina'; */
+  font-size: 2em;
+  font-weight: lighter;
+  /* font-style: italic; */
 }
 
 .startButton {
-  background-color: #f2994a;
+  background-color: var(--third-color);
   width: 100px;
   height: 40px;
   border: 0;
   border-radius: 4px;
   margin: 20px auto;
-  color: white;
+  color: var(--sixth-color);
   cursor: pointer;
 }
 
 .startButton :active {
-  background-color: white;
-  color: #f2994a;
+  background-color: var(--fourth-color);
+  color: var(--sixth-color);
+}
+
+.logo {
+  height: 450px;
+  width: 450px;
+  background-size: 100%;
+  background-image: url('../../resources/pictures/logo上色板.jpg');
 }

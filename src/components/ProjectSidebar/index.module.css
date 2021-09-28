@@ -17,3 +17,20 @@
   background-color: var(--sixth-color);
   height: 1px;
 }
+
+.logoWrapper {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  width: 200px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-image: url('../../resources/pictures/logo橫式\(白色版\).png');
+}

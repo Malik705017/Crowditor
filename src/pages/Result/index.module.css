@@ -42,11 +42,22 @@
 .score h1 {
   font-size: 8em;
   margin: 0;
-  color: var(--second-color);
+}
+
+.scoreRankHigh {
+  color: #ADD543;
+}
+
+.scoreRankMiddle {
+  color: #EDDE57;
+}
+
+.scoreRankLow {
+  color: #F36464;
 }
 
 .textBox {
-  background-color: var(--forth-color);
+  background-color: var(--fourth-color);
   margin: 30px;
   padding: 10px 30px;
   border-radius: 15px;
@@ -129,4 +140,12 @@
 .listBox {
   height: auto;
   padding: 0;
+}
+
+.scoreBox {
+  padding: 20px 40px 0px 40px;
+}
+
+.scoreBox h2 {
+  margin-bottom: 0px;
 }

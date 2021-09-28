@@ -17,6 +17,9 @@ import {
   rowCenter,
   rowBasline,
   score,
+  scoreRankHigh,
+  scoreRankMiddle,
+  scoreRankLow,
   textBox,
   chartBoxWrapper,
   large,
@@ -28,6 +31,7 @@ import {
   chartBox,
   loading,
   loader,
+  scoreBox
 } from './index.module.css';
 
 const ResultPage = () => {
@@ -53,10 +57,10 @@ const ResultPage = () => {
         ) : (
           <div className={columnCenter}>
             <div className={rowCenter}>
-              <div>
+              <div className={classnames(chartBox, scoreBox)}>
                 <h2>專案評分</h2>
                 <div className={classnames(score, rowBasline)}>
-                  <h1>{resultState.score}</h1>
+                  <h1 className={resultState.score >= 80 ? scoreRankHigh : resultState.score >= 50 ? scoreRankMiddle : scoreRankLow}>{resultState.score}</h1>
                   <h3>/100</h3>
                 </div>
               </div>

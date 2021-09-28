@@ -2,13 +2,14 @@ import Link from '../Link';
 import classnames from 'classnames';
 import { appPath } from '../../config/routing.config';
 
-import { logo } from '../../App.module.css';
-import { sidebar, sidebarLink, splitLine } from './index.module.css';
+import { sidebar, sidebarLink, splitLine, logoWrapper, logo } from './index.module.css';
 
 const Sidebar = ({ className, projects = [0, 1, 2, 3, 4, 5] }) => {
   return (
     <div className={classnames(sidebar, className)}>
-      <div className={logo} />
+      <div className={logoWrapper}>
+        <div className={logo} />
+      </div>
       <div>
         <hr className={splitLine} />
         <Link className={sidebarLink} to={appPath.overview}>

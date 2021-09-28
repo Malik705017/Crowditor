@@ -5,7 +5,7 @@ import { colors } from "../../../resources/data/Color";
 
 export default function Line ({ data }) {
   const options= {
-    colors: [colors.color2],
+    colors: [colors.color3],
     chart: {
         type: 'line',
         zoom: {
