@@ -102,7 +102,7 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                     </tr>
                     {items.map((item, i, arr) => (
                         <React.Fragment key={`${title}-item-${i}`}>
-                            <tr className={item.success ? rankItem : classnames(rankItem, failure)}>
+                            <tr className={item.success ? classnames(rankItem, failure) : rankItem}>
                                 <td className={classnames(rankItemCell, rank)}>{item.rank}</td>
                                 <td className={classnames(rankItemCell, name)}><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></td>
                                 <td className={classnames(rankItemCell, domain)}>{item.domain}</td>
@@ -111,7 +111,7 @@ export default function RankList ({title='', columns=[], items=[], type}) {
                             </tr>
                             {arr.length - 1 !== i &&
                                 <tr className={separateWrapper}>
-                                    <td className={item.success ? separate : classnames(separate, failure)} colSpan="5">
+                                    <td className={item.success ? classnames(separate, failure) : separate} colSpan="5">
                                         <hr></hr>
                                     </td>
                                 </tr>
