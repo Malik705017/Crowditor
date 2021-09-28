@@ -14,6 +14,11 @@ import ProjectSidebar from '../../components/ProjectSidebar';
 import InfoSidebar from '../../components/InfoSidebar';
 import FormInput from '../../components/FormInput';
 
+import Facebook from '../../resources/svg/facebook';
+import Instagram from '../../resources/svg/instagram';
+import Webpage from '../../resources/svg/webpage';
+import Youtube from '../../resources/svg/youtube';
+
 import {
   container,
   formWrapper,
@@ -227,6 +232,7 @@ const Editor = () => {
                   }
                 ></input>
                 <label className={formName}>網頁</label>
+                <Webpage/>
               </div>
               <div className={checkbox}>
                 <input
@@ -242,6 +248,7 @@ const Editor = () => {
                   }
                 ></input>
                 <label className={formName}>Facebook</label>
+                <Facebook/>
               </div>
               <div className={checkbox}>
                 <input
@@ -257,6 +264,7 @@ const Editor = () => {
                   }
                 ></input>
                 <label className={formName}>Instagram</label>
+                <Instagram/>
               </div>
               <div className={checkbox}>
                 <input
@@ -272,6 +280,7 @@ const Editor = () => {
                   }
                 ></input>
                 <label className={formName}>Youtube</label>
+                <Youtube/>
               </div>
             </div>
           </div>
