@@ -54,6 +54,10 @@ const ResultPage = () => {
             <h3>Please wait while analyzing</h3>
             <div className={loading} />
           </div>
+        ) : ( resultState.score === 0 ? (
+          <div className={loader}>
+            <h1>Please submit your project first.</h1>
+          </div>
         ) : (
           <div className={columnCenter}>
             <div className={rowCenter}>
@@ -123,7 +127,7 @@ const ResultPage = () => {
             )}
             <button className={continueButton} onClick={handleContinue} type='submit'>繼續編輯</button>
           </div>
-        )}
+        ))}
       </div>
     </div>
   );
