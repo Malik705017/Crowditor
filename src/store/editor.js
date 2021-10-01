@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { mockProjects as projectLists } from '../resources/data/project_list';
 
 export const projectCategoryOptions = [
   '出版',
@@ -21,27 +22,30 @@ export const projectCategoryOptions = [
 
 export const projectTypeOptions = ['群眾集資', '訂閱式專案'];
 
-export const initialEditorFormState = {
-  form: {
-    name: { value: '', isValid: true },
-    goal: { value: 100000, isValid: true },
-    category: { value: '科技', isValid: true },
-    type: { value: '群眾集資', isValid: true },
-    startTime: { value: new Date().toISOString(), isValid: true },
-    endTime: { value: new Date().toISOString(), isValid: true },
-    intro: { value: '', isValid: true },
-    website: { value: false, isValid: true },
-    facebook: { value: false, isValid: true },
-    instagram: { value: false, isValid: true },
-    youtube: { value: false, isValid: true },
-    content: {
-      value: '',
-      isValid: true,
-    },
-    donateNum: { value: 10, isValid: true },
-    donateMaxAmount: { value: 1000, isValid: true },
-    donateMinAmount: { value: 100, isValid: true },
+const form = {
+  name: { value: '', isValid: true },
+  goal: { value: 100000, isValid: true },
+  category: { value: '科技', isValid: true },
+  type: { value: '群眾集資', isValid: true },
+  startTime: { value: new Date().toISOString(), isValid: true },
+  endTime: { value: new Date().toISOString(), isValid: true },
+  intro: { value: '', isValid: true },
+  website: { value: false, isValid: true },
+  facebook: { value: false, isValid: true },
+  instagram: { value: false, isValid: true },
+  youtube: { value: false, isValid: true },
+  content: {
+    value: '',
+    isValid: true,
   },
+  donateNum: { value: 10, isValid: true },
+  donateMaxAmount: { value: 1000, isValid: true },
+  donateMinAmount: { value: 100, isValid: true },
+};
+
+export const initialEditorFormState = {
+  formList: projectLists,
+  curFormIndex: 0,
   advice: Object.fromEntries(
     projectCategoryOptions.map(category => [
       category,
@@ -61,15 +65,18 @@ export const initialEditorFormState = {
   ),
 };
 
-const changeForm = (state, action) => ({
+const addForm = (state, action) => ({
   ...state,
-  form: {
-    ...state.form,
-    [action.payload.type]: {
-      ...state.form[action.payload.type],
-      [action.payload.key]: action.payload.value,
-    },
-  },
+  formList: [...state.formList, form],
+});
+
+const changeForm = (state, action) => {
+  state.formList[action.payload.curFormIndex][action.payload.type][action.payload.key] = action.payload.value;
+};
+
+const changeIndex = (state, action) => ({
+  ...state,
+  curFormIndex: action.payload,
 });
 
 const getAdvice = (state, action) => ({
@@ -81,7 +88,9 @@ const editorSlice = createSlice({
   name: 'editorForm',
   initialState: initialEditorFormState,
   reducers: {
+    addForm,
     changeForm,
+    changeIndex,
     getAdvice,
   },
 });

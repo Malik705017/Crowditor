@@ -54,9 +54,9 @@ export const getAdvice = () => async dispatch => {
   }
 };
 
-export const sendFormData = () => async (dispatch, getState) => {
+export const sendFormData = curFormIndex => async (dispatch, getState) => {
   try {
-    const formData = getState().editor;
+    const formData = getState().editor.formList[curFormIndex];
 
     const body = {
       content: formData.content.value,
