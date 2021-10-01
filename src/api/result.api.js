@@ -2,6 +2,7 @@
 import { resultActions, initialResultState } from "../store/result";
 
 // import response_estimation from "../mock_response/response_estimation.json";
+import { colors } from "../resources/data/Color";
 
 const createBoxPlotData = (inputData, title) => {
   return {
@@ -20,7 +21,8 @@ const createBoxPlotData = (inputData, title) => {
               inputData.box_max
             ]
           }
-        ]
+        ],
+        color: colors.color1
       },
       {
         name: "專案自己",
@@ -31,7 +33,7 @@ const createBoxPlotData = (inputData, title) => {
             y: inputData.project_value
           }
         ],
-        color: "#8B00FF"
+        color: colors.color4
       },
       {
         name: "相似失敗專案中位數",
@@ -42,7 +44,7 @@ const createBoxPlotData = (inputData, title) => {
             y: inputData.failure_median
           }
         ],
-        color: "#FF0000"
+        color: colors.color2
       },
       {
         name: "相似成功專案中位數",
@@ -53,7 +55,7 @@ const createBoxPlotData = (inputData, title) => {
             y: inputData.success_median
           }
         ],
-        color: "#0000FF"
+        color: colors.color5
       }
     ],
     xaxis: {
@@ -86,11 +88,16 @@ const emptyBoxPlotData = {
   project_value: 0,
 };
 
+export const startLoading = () => dispatch => {
+  dispatch(resultActions.startLoading());
+}
+
 export const getResultData = estimation => async dispatch => {
   try {
     const parseData = estimation;
 
     const resultData = {
+      loading: false,
       score: (parseData.score * 100).toFixed(1),
       score_rank_index: Math.floor(parseData.score * 10),
       greater_than: (parseData.greater_than * 100).toFixed(2),
@@ -139,6 +146,24 @@ export const getResultData = estimation => async dispatch => {
           parseData.metadata.min_set_prices,
           "最低贊助方案金額"
         ),
+      title_recommend_tokens: {
+        all: parseData.peer_cnt===0 ? [] : 
+          parseData.recommend_tokens.title.map((item) => (
+            {
+              "text": item.token,
+              "value": Math.log(item.pvals),
+            }
+          ))
+      },
+      content_recommend_tokens: {
+        all: parseData.peer_cnt===0 ? [] : 
+          parseData.recommend_tokens.content.map((item) => (
+            {
+              "text": item.token,
+              "value": Math.log(item.pvals),
+            }
+          ))
+      }
     };
     dispatch(resultActions.loadResult(resultData));
   } catch (error) {

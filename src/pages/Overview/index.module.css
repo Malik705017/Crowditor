@@ -37,7 +37,7 @@
 }
 
 .mid {
-  height: 450px;
+  height: 550px;
   width: 620px;
 }
 
@@ -84,5 +84,5 @@
 }
 
 .second_color_text {
-  color: var(--second-color);
+  color: var(--third-color);
 }

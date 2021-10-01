@@ -6,7 +6,7 @@ import { colors } from "../../../resources/data/Color";
 export default function StackedBar ({ data, full = false, horizontal = false }) {
   
   const options= {
-    colors: [colors.color1, colors.color3, colors.color2, colors.color4],
+    colors: [colors.color1, colors.color3, colors.color2, colors.color4,colors.color5],
     chart: {
         type: 'bar',
         height: 350,
@@ -41,6 +41,6 @@ export default function StackedBar ({ data, full = false, horizontal = false }) 
     };
 
   return (
-    <Chart options={options} series={data.series} type="bar"  height="90%" width="100%"/>
+    <Chart options={options} series={data.series} type="bar" height="90%" width="100%"/>
   )
 }

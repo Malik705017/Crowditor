@@ -6,8 +6,7 @@ import { appPath } from '../../config/routing.config';
 import { editorActions } from '../../store/editor';
 import add from '../../resources/images/add.png';
 
-import { logo } from '../../App.module.css';
-import { sidebar, sidebarLink, splitLine, addIcon, project, projectList } from './index.module.css';
+import { sidebar, sidebarLink, splitLine, addIcon, project, projectList, logoWrapper, logo } from './index.module.css';
 
 const Sidebar = ({ className }) => {
   const dispatch = useDispatch();
@@ -19,7 +18,9 @@ const Sidebar = ({ className }) => {
 
   return (
     <div className={classnames(sidebar, className)}>
-      <div className={logo} />
+      <div className={logoWrapper}>
+        <div className={logo} />
+      </div>
       <div>
         <hr className={splitLine} />
         <Link className={sidebarLink} to={appPath.overview}>

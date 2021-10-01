@@ -1,32 +1,37 @@
-import React , { useEffect ,useState } from "react";
+import React , { useEffect ,useState, useMemo } from "react";
 import ReactWordcloud from "react-wordcloud";
+import { colors } from "../../../resources/data/Color";
 
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 import ButtonGroup from "./ButtonGroup";
 
-const options = {
-  colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"],
-  enableTooltip: true,
-  deterministic: false,
-  fontFamily: "impact",
-  fontSizes: [12, 90],
-  fontStyle: "normal",
-  fontWeight: "normal",
-  padding: 1,
-  rotations: 1, //restrict to horizontal
-  rotationAngles: [0, 90],
-  scale: "log",
-  spiral: "rectangular",
-  transitionDuration: 1000 //animation
-};
+
 
 export default function WordCloud({ data, multi }) {
+  const options = useMemo(() => {
+    return({
+      colors: [colors.color1, colors.color2,colors.color3,colors.color4,colors.color5],
+      enableTooltip: multi? true: false,
+      deterministic: false,
+      fontFamily: "impact",
+      fontSizes: [12, 90],
+      fontStyle: "normal",
+      fontWeight: "normal",
+      padding: 1,
+      rotations: 1, //restrict to horizontal
+      rotationAngles: [0, 90],
+      scale: "log",
+      spiral: "rectangular",
+      transitionDuration: 1000 //animation
+    });
+  }, [multi]);
+
   const [graph , setGraph] = useState(<ReactWordcloud options={options} words={data.all} />);
 
   useEffect(() => {
     setGraph(<ReactWordcloud options={options} words={data.all} />)
-  }, [data]);
+  }, [data, options]);
   
   const changeAll = () => {
     setGraph(<ReactWordcloud options={options} words={data.all} />)
@@ -81,7 +86,6 @@ export default function WordCloud({ data, multi }) {
   }
 
   const Farray = ({id}) => {
-    console.log(id);
     switch(id){
       case 0:
         changeAll();

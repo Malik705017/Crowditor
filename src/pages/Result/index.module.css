@@ -9,6 +9,7 @@
   right: 0;
   padding: 0 40px;
   height: auto;
+  min-height: 100%;
   background-color: var(--fifth-color);
   color: var(--first-color);
 }
@@ -41,11 +42,22 @@
 .score h1 {
   font-size: 8em;
   margin: 0;
-  color: var(--second-color);
+}
+
+.scoreRankHigh {
+  color: #ADD543;
+}
+
+.scoreRankMiddle {
+  color: #EDDE57;
+}
+
+.scoreRankLow {
+  color: #F36464;
 }
 
 .textBox {
-  background-color: var(--forth-color);
+  background-color: var(--fourth-color);
   margin: 30px;
   padding: 10px 30px;
   border-radius: 15px;
@@ -56,6 +68,8 @@
   background-color: var(--first-color);
   border: none;
   height: 5px;
+  width: 100%;
+  margin: 0;
 }
 
 .chartBoxWrapper {
@@ -64,9 +78,33 @@
   flex-wrap: wrap;
 }
 
+.chartBox {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+  background-color: var(--sixth-color);
+}
+
+.chartBox h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.large {
+  height: 400px;
+  width: 100%;
+  max-width: 1280px;
+}
+
 .mid {
   height: 450px;
-  width: 600px;
+  width: 620px;
+}
+
+.small {
+  height: auto;
+  width: 400px;
 }
 
 .rankInfoWrapper {
@@ -76,14 +114,13 @@
 
 .continueButton {
   background-color: var(--first-color);
-  color: var(--fifth-color);
-  width: 200px;
+  width: 100px;
   height: 40px;
   border: 0;
-  border-radius: 6px;
-  margin: 20px auto;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  color: white;
   cursor: pointer;
-  font-size: large;
 }
 
 .loader {
@@ -102,6 +139,13 @@
 }
 .listBox {
   height: auto;
-  border-radius: 15px;
-  box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+  padding: 0;
+}
+
+.scoreBox {
+  padding: 20px 40px 0px 40px;
+}
+
+.scoreBox h2 {
+  margin-bottom: 0px;
 }
