@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import classNames from 'classnames';
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import DateTimePicker from 'react-datetime-picker';
 
@@ -39,31 +39,38 @@ import {
 } from './index.module.css';
 
 const Editor = () => {
-  // const params = useParams();
+  const params = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
-  const editorState = useSelector(state => state.editor.form);
+  const curFormIndex = useSelector(state => state.editor.curFormIndex);
+  const editorState = useSelector(state => state.editor.formList[curFormIndex]);
   const adviceState = useSelector(state => state.editor.advice);
-  const { changeForm } = editorActions; // redux action destruction
+  const { changeForm, changeIndex } = editorActions; // redux action destruction
 
-  const inputChangeHandler = ({ key, value, type }) => {
-    dispatch(changeForm({ key, value, type }));
-  };
+  console.log('editorState', editorState);
 
-  const inputBlurHandler = ({ key, value, inputType, type }) => {
-    const isValid = examInput(inputType, value);
-    dispatch(changeForm({ key, value: isValid, type }));
-  };
-
-  const sendFormHandler = event => {
-    event.preventDefault();
-    dispatch(sendFormData());
-    history.push('/result');
-  };
+  useEffect(() => {
+    dispatch(changeIndex(parseInt(params.id) - 1));
+  }, [dispatch, changeIndex, params]);
 
   useEffect(() => {
     dispatch(getAdvice());
   }, [dispatch]);
+
+  const inputChangeHandler = ({ key, value, type }) => {
+    dispatch(changeForm({ key, value, type, curFormIndex }));
+  };
+
+  const inputBlurHandler = ({ key, value, inputType, type }) => {
+    const isValid = examInput(inputType, value);
+    dispatch(changeForm({ key, value: isValid, type, curFormIndex }));
+  };
+
+  const sendFormHandler = event => {
+    event.preventDefault();
+    dispatch(sendFormData(curFormIndex));
+    history.push('/result');
+  };
 
   return (
     <div className={container}>
