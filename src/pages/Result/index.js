@@ -36,7 +36,8 @@ import {
 
 const ResultPage = () => {
   const resultState = useSelector(state => state.result);
-  const editorState = useSelector(state => state.editor);
+  const curFormIndex = useSelector(state => state.editor.curFormIndex);
+  const editorState = useSelector(state => state.editor.formList[curFormIndex]);
   const history = useHistory();
 
   const handleContinue = () => {
@@ -48,7 +49,7 @@ const ResultPage = () => {
     <div className={container}>
       <ProjectSidebar />
       <div className={resultWrapper}>
-        <Title>{editorState.form.name.value}</Title>
+        <Title>{editorState.name.value}</Title>
         {resultState.loading ? (
           <div className={loader}>
             <h3>Please wait while analyzing</h3>
