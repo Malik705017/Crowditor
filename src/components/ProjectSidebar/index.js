@@ -1,11 +1,22 @@
-import Link from '../Link';
+import { useSelector, useDispatch } from 'react-redux';
 import classnames from 'classnames';
+
+import Link from '../Link';
 import { appPath } from '../../config/routing.config';
+import { editorActions } from '../../store/editor';
+import add from '../../resources/images/add.png';
 
 import { logo } from '../../App.module.css';
-import { sidebar, sidebarLink, splitLine } from './index.module.css';
+import { sidebar, sidebarLink, splitLine, addIcon, project, projectList } from './index.module.css';
 
-const Sidebar = ({ className, projects = [0, 1, 2, 3, 4, 5] }) => {
+const Sidebar = ({ className }) => {
+  const dispatch = useDispatch();
+  const projects = useSelector(state => state.editor.formList);
+
+  const addProjectHandler = () => {
+    dispatch(editorActions.addForm());
+  };
+
   return (
     <div className={classnames(sidebar, className)}>
       <div className={logo} />
@@ -15,9 +26,19 @@ const Sidebar = ({ className, projects = [0, 1, 2, 3, 4, 5] }) => {
           Overview
         </Link>
         <hr className={splitLine} />
-        {projects.map((p, index) => (
-          <Link key={p} className={sidebarLink} to={`${appPath.editor}/${index + 1}`}>{`Project ${index + 1}`}</Link>
-        ))}
+        <div className={project}>
+          <p>Project</p>
+          <img className={addIcon} src={add} alt={'add icon'} onClick={addProjectHandler} />
+        </div>
+        <div className={projectList}>
+          {projects.map((project, index) => (
+            <Link
+              key={`${project.name}_${index}`}
+              className={sidebarLink}
+              to={`${appPath.editor}/${index + 1}`}
+            >{`Project ${index + 1}`}</Link>
+          ))}
+        </div>
         <hr className={splitLine} />
         <Link className={sidebarLink} to={appPath.overview}>
           Logout
